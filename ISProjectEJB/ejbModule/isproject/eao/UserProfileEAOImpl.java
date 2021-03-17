@@ -1,8 +1,11 @@
 package isproject.eao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import isproject.ejb.UserProfile;
 
@@ -31,5 +34,18 @@ public class UserProfileEAOImpl implements UserProfileEAOLocal {
     	if (user != null) {
     		em.remove(user);
     	}
+    }
+    public List<UserProfile> findAll(){
+    	TypedQuery<UserProfile> query = 
+    			em.createNamedQuery("UserProfile.findAll", UserProfile.class);
+    	List<UserProfile> allUsers = query.getResultList();
+    	return allUsers;
+    }
+    public List<UserProfile> findUserByName(String name){
+    	TypedQuery<UserProfile> query =
+    			em.createNamedQuery("UserProfile.findUserByName", UserProfile.class);
+    	query.setParameter("name", name);
+    	List<UserProfile> users = query.getResultList();
+    	return users;
     }
 }

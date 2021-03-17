@@ -2,6 +2,7 @@ package isproject.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -37,17 +38,28 @@ public class UserServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html><html><head>");
-		out.println("<title>Lab1</title>");
+		out.println("<title>UserServlet</title>");
 		out.println("<meta charset=\"ISO-8859-1\">");
 		out.println("</head><body>");
 		out.println("<h2>UserProfile</h2>");
 		out.println("</body></html>");
 		
-		UserProfile user = facade.findUserByEmail("Gustav@gmail.com");
+		List<UserProfile> allUser = facade.findAllUsers();
 		
-		out.println("<h2>User</h2>");
-		out.print("<p>" + user.getUserName() + " ");
-		out.print(user.getBirthYear()+"</p>");
+		out.println("<h2>All Users</h2>");
+		for(UserProfile user : allUser) {
+			out.print("<h4>" + user.getEmail() + " ");
+			out.print(user.getUserName() + " ");
+			out.print(user.getBirthYear()+"</h4>");
+		}
+		
+		out.println("<br><h4>Is named Gustav</h4>");
+		List<UserProfile> allUsersNamedGustav = facade.findUserByName("%Gustav%");
+		for (UserProfile user2 : allUsersNamedGustav) {
+			out.print("<h4>" + user2.getEmail() + " ");
+			out.print(user2.getUserName() + " ");
+			out.print(user2.getBirthYear()+"</h4>");
+		}
 		out.println("</body></html>");
 	}
 

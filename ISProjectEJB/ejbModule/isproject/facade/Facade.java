@@ -1,5 +1,7 @@
 package isproject.facade;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -26,5 +28,11 @@ public class Facade implements FacadeLocal {
     }
     public void deleteUser(String email) {
     	userProfileEAO.deleteUser(email);
+    }
+    public List<UserProfile> findAllUsers(){
+    	return userProfileEAO.findAll();
+    }
+    public List<UserProfile> findUserByName(String name) {
+    	return userProfileEAO.findUserByName(name);
     }
 }
