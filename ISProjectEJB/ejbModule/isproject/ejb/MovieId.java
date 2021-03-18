@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
 
 @Embeddable
 public class MovieId implements Serializable {
@@ -18,6 +19,7 @@ public class MovieId implements Serializable {
 	}
 
 	@Column(name = "movieName")
+	@NotNull
 	public String getMovieName() {
 		return movieName;
 	}
@@ -25,8 +27,9 @@ public class MovieId implements Serializable {
 	public void setMovieName(String movieName) {
 		this.movieName = movieName;
 	}
-
+	
 	@Column(name = "releaseYear")
+	@NotNull
 	public String getReleaseYear() {
 		return releaseYear;
 	}

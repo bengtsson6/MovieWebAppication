@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import isproject.ejb.Movie;
 import isproject.ejb.UserProfile;
 
 @Local
@@ -14,4 +15,10 @@ public interface FacadeLocal {
 	public void deleteUser(String email);
 	public List<UserProfile> findAllUsers();
 	public List<UserProfile> findUserByName(String name);
+    public Movie findMovieById(String movieName, String releaseYear);
+    public Movie createMovie(Movie movie);
+    public Movie updateMovie(Movie movie);
+    public void deleteMovie(String movieName, String releaseYear);
+    public List<Movie> findAllMovie();
+    public List<Movie> findMovieByName(String name);
 }
