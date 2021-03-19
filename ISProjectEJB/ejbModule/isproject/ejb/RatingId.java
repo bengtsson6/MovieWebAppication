@@ -1,23 +1,34 @@
 package isproject.ejb;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
 @Embeddable
-public class RatingId {
-	private String movieTitle;
+public class RatingId implements Serializable{
+	private String movieName;
 	private String releaseYear;
 	private String email;
 
-	@Column(name = "movieTitle")
+	
+	public RatingId() {
+	}
+	public RatingId(String movieTitle, String releaseYear, String email) {
+		this.movieName = movieTitle;
+		this.releaseYear = releaseYear;
+		this.email = email;
+	}
+	
+	@Column(name = "movieName")
 	@NotNull
-	public String getMovieTitle() {
-		return movieTitle;
+	public String getMovieName() {
+		return movieName;
 	}
 
-	public void setMovieTitle(String movieTitle) {
-		this.movieTitle = movieTitle;
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
 	}
 
 	@Column(name = "releaseYear")
@@ -54,11 +65,14 @@ public class RatingId {
 
 		return ((this.getEmail() == castRatingId.getEmail()) || (this.getEmail() != null
 				&& castRatingId.getEmail() != null && this.getEmail().equals(castRatingId.getEmail())))
-				&& ((this.getMovieTitle() == castRatingId.getMovieTitle())
-						|| (this.getMovieTitle() != null && castRatingId.getMovieTitle() != null
-								&& this.getMovieTitle().equals(castRatingId.getMovieTitle())))
+				&& ((this.getMovieName() == castRatingId.getMovieName())
+						|| (this.getMovieName() != null && castRatingId.getMovieName() != null
+								&& this.getMovieName().equals(castRatingId.getMovieName())))
 				&& ((this.getReleaseYear() == castRatingId.getReleaseYear())
 						|| (this.getReleaseYear() != null && castRatingId.getReleaseYear() != null
 								&& this.getReleaseYear().equals(castRatingId.getReleaseYear())));
+	}
+	public int hashCode() {
+		return super.hashCode();
 	}
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import isproject.ejb.Movie;
 import isproject.ejb.MovieId;
+import isproject.ejb.Rating;
 import isproject.facade.FacadeLocal;
 
 /**
@@ -69,6 +70,16 @@ public class MovieServlet extends HttpServlet {
 			out.print(tmpMovie2.getGenre() + " ");
 			out.print(tmpMovie2.getStreamingService() + " ");
 			out.print(tmpMovie2.getDirector() + "</h4>");
+		}
+		out.println("<br><h4>All Ratings of Hajen</h4>");
+		Movie hajen = facade.findMovieById("Hajen", "1970");
+		for (Rating r : hajen.getRatings()) {
+			out.print("<h4>" + r.getId().getMovieName() + " ");
+			out.print(r.getId().getReleaseYear() + " ");
+			out.print(r.getId().getEmail() + " ");
+			out.print(r.getRatingGrade() + " ");
+			out.print(r.getReview()+"</h4>");
+		
 		}
 	}
 }

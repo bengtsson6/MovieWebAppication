@@ -1,12 +1,15 @@
 package isproject.ejb;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +23,7 @@ public class UserProfile implements Serializable {
 	private String email;
 	private String userName;
 	private String birthYear;
+	private Set<Rating> ratings;
 	
 	@Id
 	@Column(name ="email")
@@ -42,5 +46,12 @@ public class UserProfile implements Serializable {
 	}
 	public void setBirthYear(String birthYear) {
 		this.birthYear = birthYear;
+	}
+	@OneToMany(fetch = FetchType.EAGER, mappedBy ="userProfile")
+	public Set<Rating> getRatings(){
+		return this.ratings;
+	}
+	public void setRatings(Set<Rating> ratings) {
+		this.ratings = ratings;
 	}
 }

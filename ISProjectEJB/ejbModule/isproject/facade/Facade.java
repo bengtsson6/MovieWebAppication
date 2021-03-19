@@ -6,8 +6,10 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import isproject.eao.MovieEAOLocal;
+import isproject.eao.RatingEAOLocal;
 import isproject.eao.UserProfileEAOLocal;
 import isproject.ejb.Movie;
+import isproject.ejb.Rating;
 import isproject.ejb.UserProfile;
 
 
@@ -18,6 +20,8 @@ public class Facade implements FacadeLocal {
 	private UserProfileEAOLocal userProfileEAO;
 	@EJB
 	private MovieEAOLocal movieEAO;
+	@EJB
+	private RatingEAOLocal ratingEAO;
 	
     public Facade() {
         
@@ -58,4 +62,16 @@ public class Facade implements FacadeLocal {
     public List<Movie> findMovieByName(String name){
     	return movieEAO.findByName(name);
     }
+	public Rating findRatingById(String movieName, String releaseYear, String email) {
+		return ratingEAO.findById(movieName, releaseYear, email);
+	}
+	public Rating createRating(Rating rating) {
+		return ratingEAO.createRating(rating);
+	}
+	public Rating updateRating(Rating rating) {
+		return ratingEAO.updateRating(rating);
+	}
+	public void deleteRating(String movieName, String releaseYear, String email) {
+		ratingEAO.deleteRating(movieName, releaseYear, email);
+	}
 }

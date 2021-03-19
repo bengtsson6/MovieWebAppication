@@ -57,4 +57,7 @@ public class MovieId implements Serializable {
 								&& this.getReleaseYear().equals(castMovieId.getReleaseYear())));
 
 	}
+	public int hashCode() {
+		return super.hashCode();
+	}
 }

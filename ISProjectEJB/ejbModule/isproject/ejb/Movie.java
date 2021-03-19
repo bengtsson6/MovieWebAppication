@@ -1,12 +1,15 @@
 package isproject.ejb;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,7 @@ public class Movie implements Serializable {
 	private String director;
 	private String genre;
 	private String streamingService;
+	private Set<Rating> ratings;
 	
 	@EmbeddedId
 	public MovieId getId() {
@@ -49,5 +53,12 @@ public class Movie implements Serializable {
 	}
 	public void setStreamingService(String streamingService) {
 		this.streamingService = streamingService;
+	}
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "movie")
+	public Set<Rating> getRatings(){
+		return this.ratings;
+	}
+	public void setRatings(Set<Rating> ratings) {
+		this.ratings = ratings;
 	}
 }

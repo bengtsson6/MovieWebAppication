@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import isproject.ejb.Rating;
 import isproject.ejb.UserProfile;
 import isproject.facade.FacadeLocal;
 
@@ -53,12 +54,14 @@ public class UserServlet extends HttpServlet {
 			out.print(user.getBirthYear()+"</h4>");
 		}
 		
-		out.println("<br><h4>Is named Gustav</h4>");
-		List<UserProfile> allUsersNamedGustav = facade.findUserByName("%Gustav%");
-		for (UserProfile user2 : allUsersNamedGustav) {
-			out.print("<h4>" + user2.getEmail() + " ");
-			out.print(user2.getUserName() + " ");
-			out.print(user2.getBirthYear()+"</h4>");
+		out.println("<br><h4>All ratings By Bob</h4>");
+		UserProfile bob = facade.findUserByEmail("Bob@gmail.com");
+		for (Rating r : bob.getRatings()) {
+			out.print("<h4>" + r.getId().getMovieName() + " ");
+			out.print(r.getId().getReleaseYear() + " ");
+			out.print(r.getId().getEmail() + " ");
+			out.print(r.getRatingGrade() + " ");
+			out.print(r.getReview()+"</h4>");
 		}
 		out.println("</body></html>");
 	}
