@@ -45,6 +45,12 @@ public class UserServlet extends HttpServlet {
 		out.println("<h2>UserProfile</h2>");
 		out.println("</body></html>");
 		
+		UserProfile n = new UserProfile();
+		n.setEmail("HejFrånWeb2");
+		n.setUserName("NewName");
+		n.setBirthYear("1960");
+		facade.updateUser(n);
+		
 		List<UserProfile> allUser = facade.findAllUsers();
 		
 		out.println("<h2>All Users</h2>");

@@ -49,8 +49,9 @@ public class RatingServlet extends HttpServlet {
 		//facade.createRating(rating);
 		facade.updateRating(rating);
 		Rating r = facade.findRatingById(rating.getId().getMovieName(), rating.getId().getReleaseYear(), rating.getId().getEmail());
+		RatingId id2 = r.getId();
 		out.println("<br><h4>Newly created rating</h4>");
-		out.print("<h4>" + r.getId().getMovieName() + " ");
+		out.print("<h4>" + id2.getMovieName() + " ");
 		out.print(r.getId().getReleaseYear() + " ");
 		out.print(r.getId().getEmail() + " ");
 		out.print(r.getRatingGrade() + " ");
