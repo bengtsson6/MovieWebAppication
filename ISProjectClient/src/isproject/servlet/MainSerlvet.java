@@ -38,15 +38,14 @@ public class MainSerlvet extends HttpServlet {
 		System.out.println("Hej");
 		String operation = request.getParameter("operation");
 		if (operation.equals("userPage")) {
-
-			if (request.getParameter("btnSubmit") == "Add User") {
+			if (request.getParameter("btnSubmit").equals("Add User")) {
 				UserProfile user = new UserProfile();
 				user.setEmail(request.getParameter("txtEmail"));
 				user.setUserName(request.getParameter("txtUserName"));
 				user.setBirthYear(request.getParameter("selBirthYear"));
 				facade.createUser(user);
 			}
-			else if(request.getParameter("btnSubmit") == "Update User") {
+			else if(request.getParameter("btnSubmit").equals("Update User")) {
 				UserProfile user = new UserProfile();
 				user.setEmail(request.getParameter("txtEmail"));
 				user.setUserName(request.getParameter("txtUserName"));
