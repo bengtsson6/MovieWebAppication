@@ -7,12 +7,17 @@
 	width: 132px;
 }
 
-table {
+fieldset {
 	background-color: #968c8c;
 }
 
 body {
 	background-color: #bdb7b7;
+}
+
+#col1row3 {
+	padding-top: 10;
+	padding-bottom: 10;
 }
 </Style>
 <head>
@@ -21,17 +26,19 @@ body {
 </head>
 <body>
 	<form action="/ISProjectClient/MainSerlvet" method="post">
-		<table align="left">
-			<tr>
-				<td><label for="txtEmail">User Email</label></td>
-				<td><input type="text" name="txtEmail" size=30 maxlength=35></td>
-				<td><label for="txtUserName">Full Name</label></td>
-				<td><input type="text" name="txtUserName" size=30 maxlength=35>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="selBirthYear">BirthYear</label>
-				<td><select name="selBirthYear" id="selBirthYear">
+		<fieldset id="UserFS">
+			<legend>Enter User Information:</legend>
+			<p>
+				<label for="txtEmail">User Email</label> 
+				<input type="text"
+					name="txtEmail" size=30 maxlength=35> 
+				<label for="txtUserName">Full Name</label> 
+				<input type="text"
+					name="txtUserName" size=30 maxlength=35>
+					</p>
+					<p>
+					<label for="selBirthYear">BirthYear</label>
+				<select name="selBirthYear" id="selBirthYear">
 						<%
 							for (int i = 1930; i < 2020; i++) {
 						%>
@@ -39,15 +46,13 @@ body {
 						<%
 							}
 						%>
-				</select></td>
-			</tr>
-			<tr>
-				<td><input type="submit" name="btnSubmit" id="btnAddUser"
-					value="Add User"></td>
-				<td><input type="submit" name="btnSubmit"
-					id="btnUpdateUser" value="Update User"></td>
-			</tr>
-		</table>
+				</select>
+				</p>
+				<input type="submit"
+					name="btnSubmit" id="btnAddUser" value="Add User"> <input
+					type="submit" name="btnSubmit" id="btnUpdateUser"
+					value="Update User">
+		</fieldset>
 		<input name="operation" value="userPage" type=hidden>
 	</form>
 </body>
