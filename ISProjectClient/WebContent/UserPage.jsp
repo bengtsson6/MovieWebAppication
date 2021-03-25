@@ -3,12 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="validationScripts.js">
+</script> 
 <link rel="stylesheet" type="text/css" href="styling.css">
 <meta charset="ISO-8859-1">
 <title>IsProjectVT21.UserPage</title>
 </head>
 <body>
-	<form action="/ISProjectClient/MainSerlvet" method="post">
+	<form action="/ISProjectClient/MainSerlvet" method="post" id="userForm" onSubmit="return validateUserForm();">
 		<fieldset id="UserFS">
 			<legend>Enter User Information:</legend>
 			<p>
@@ -31,10 +33,15 @@
 						%>
 				</select>
 				</p>
+				<p>
 				<input type="submit"
 					name="btnSubmit" id="btnAddUser" value="Add User"> <input
 					type="submit" name="btnSubmit" id="btnUpdateUser"
 					value="Update User">
+					</p>
+					<p>
+					<label id ="responseLabel"></label>
+					</p>
 		</fieldset>
 		<input name="operation" value="userPage" type=hidden>
 	</form>
