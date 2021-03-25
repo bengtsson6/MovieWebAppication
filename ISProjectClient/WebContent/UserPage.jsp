@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="validationScripts.js">
-</script> 
+<script src="validationScripts.js"> </script> 
 <link rel="stylesheet" type="text/css" href="styling.css">
 <meta charset="ISO-8859-1">
 <title>IsProjectVT21.UserPage</title>
@@ -16,10 +15,10 @@
 			<p>
 				<label for="txtEmail">User Email</label> 
 				<input type="text"
-					name="txtEmail" size=30 maxlength=35> 
+					name="txtEmail" id="txtEmail" size=30 maxlength=35> 
 				<label for="txtUserName">Full Name</label> 
 				<input type="text"
-					name="txtUserName" size=30 maxlength=35>
+					name="txtUserName" id="txtUserName" size=30 maxlength=35>
 					</p>
 					<p>
 					<label for="selBirthYear">BirthYear</label>
@@ -35,7 +34,7 @@
 				</p>
 				<p>
 				<input type="submit"
-					name="btnSubmit" id="btnAddUser" value="Add User"> <input
+					name="btnSubmit" id="btnAddUser" value="Add User"><input
 					type="submit" name="btnSubmit" id="btnUpdateUser"
 					value="Update User">
 					</p>
