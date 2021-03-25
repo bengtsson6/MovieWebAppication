@@ -2,27 +2,10 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<Style>
-#selBirthYear {
-	width: 132px;
-}
-
-fieldset {
-	background-color: #968c8c;
-}
-
-body {
-	background-color: #bdb7b7;
-}
-
-#col1row3 {
-	padding-top: 10;
-	padding-bottom: 10;
-}
-</Style>
 <head>
 <script src="validationScripts.js">
 </script> 
+<link rel="stylesheet" type="text/css" href="styling.css">
 <meta charset="ISO-8859-1">
 <title>IsProjectVT21.UserPage</title>
 </head>

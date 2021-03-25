@@ -1,0 +1,13 @@
+fieldset {
+	background-color: #968c8c;
+}
+
+body {
+	background-color: #bdb7b7;
+}
+#selBirthYear {
+	width: 132px;
+}
+#selReleaseYear {
+	width: 132px;
+}
