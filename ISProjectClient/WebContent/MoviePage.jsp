@@ -3,26 +3,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styling.css">
 <meta charset="ISO-8859-1">
 <title>IsProjectVT21.MoviePage</title>
 </head>
 <body>
 <form action="/ISProjectClient/MainSerlvet" method="post">
-		<table align="left">
-			<tr>
-				<td><label for="txtName">Movie Name</label></td>
-				<td><input type="text" name="txtName" size=30 maxlength=35></td>
-				<td><label for="txtDirector">Director</label></td>
-				<td><input type="text" name="txtDirector" size=30 maxlength=35>
-				<td><label for="txtGenre">Genre</label></td>
-				<td><input type="text" name="txtGenre" size=30 maxlength=35>
-				<td><label for="txtStreamingService">Streaming Service</label></td>
-				<td><input type="text" name="txtStreamingService" size=30 maxlength=35>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="selReleaseYear">Release Year</label>
-				<td><select name="selReleaseYear" id="selReleaseYear">
+				<fieldset id="MovieFS">
+			<legend>Enter Movie Information:</legend>
+			<p>
+				<label for="txtName">Name</label> 
+				<input type="text"
+					name="txtName" size=30 maxlength=35> 
+				<label for="txtDirector">Director</label> 
+				<input type="text"
+					name="txtDirector" size=30 maxlength=35>
+				<label for="txtGenre">Genre</label> 
+				<input type="text"
+					name="txtGenre" size=30 maxlength=35>
+				<label for="txtStreamingService">Streaming Service</label> 
+				<input type="text"
+					name="txtStreamingService" size=30 maxlength=35>
+					</p>
+					<p>
+					<label for="selReleaseYear">Release Year</label>
+				<select name="selReleaseYear" id="selReleaseYear">
 						<%
 							for (int i = 1930; i < 2022; i++) {
 						%>
@@ -30,17 +35,13 @@
 						<%
 							}
 						%>
-				</select></td>
-			</tr>
-			<tr>
-				<td><input type="submit" name="btnSubmit" id="btnAddMovie"
-					value="Add Movie"></td>
-				<td><input type="submit" name="btnSubmit"
-					id="btnUpdateMovie" value="Update Movie"></td>
-				<td><input type="submit" name="btnSubmit"
-					id="btnDeleteMovie" value="Delete Movie"></td>
-			</tr>
-		</table>
+				</select>
+				</p>
+				<input type="submit"
+					name="btnSubmit" id="btnAddMoive" value="Add Movie"> <input
+					type="submit" name="btnSubmit" id="btnUpdateMovie"
+					value="Update Movie">
+		</fieldset>
 		<input name="operation" value="moviePage" type=hidden>
 	</form>
 </body>

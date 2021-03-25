@@ -56,7 +56,7 @@ public class MainSerlvet extends HttpServlet {
 				user.setBirthYear(request.getParameter("selBirthYear"));
 				facade.updateUser(user);	
 			}
-			else if(request.getParameter("btnSubmit").equals("Delete User")) {
+			else if(request.getParameter("btnSubmit").equals("Delete User")) { //Delete, används ej i GUI i nuläget.
 				String email = request.getParameter("txtEmail");
 				facade.deleteUser(email);	
 			}
@@ -84,7 +84,7 @@ public class MainSerlvet extends HttpServlet {
 				movie.setStreamingService(request.getParameter("txtStreamingService"));
 				facade.updateMovie(movie);
 			}
-			else if (request.getParameter("btnSubmit").equals("Delete Movie")) {
+			else if (request.getParameter("btnSubmit").equals("Delete Movie")) { //Delete, används ej i GUI i nuläget.
 				String movieName = request.getParameter("txtName");
 				String releaseYear = request.getParameter("selReleaseYear");
 				facade.deleteMovie(movieName, releaseYear);
