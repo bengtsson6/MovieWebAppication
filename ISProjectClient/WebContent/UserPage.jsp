@@ -46,6 +46,8 @@ body {
 					value="Add User"></td>
 				<td><input type="submit" name="btnSubmit"
 					id="btnUpdateUser" value="Update User"></td>
+				<td><input type="submit" name="btnSubmit"
+					id="btnDeleteUser" value="Delete User"></td>
 			</tr>
 		</table>
 		<input name="operation" value="userPage" type=hidden>
