@@ -22,11 +22,13 @@
 					<label for="txtName">Name</label> <input type="text" id="txtName"
 						name="txtName" size=30 maxlength=35> <label
 						for="txtDirector">Director</label> <input type="text"
-						name="txtDirector" size=30 maxlength=35> <label
-						for="txtGenre">Genre</label> <input type="text" name="txtGenre"
-						size=30 maxlength=35> <label for="txtStreamingService">Streaming
-						Service</label> <input type="text" name="txtStreamingService" size=30
-						maxlength=35>
+						name="txtDirector" size=30 maxlength=35>
+				</p>
+				<p>
+					<label for="txtGenre">Genre</label> <input type="text"
+						name="txtGenre" size=30 maxlength=35> <label
+						for="txtStreamingService">Streaming Service</label> <input
+						type="text" name="txtStreamingService" size=30 maxlength=35>
 				</p>
 				<p>
 					<label for="selReleaseYear">Release Year</label> <select
