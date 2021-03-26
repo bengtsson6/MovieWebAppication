@@ -9,6 +9,8 @@
 <title>IsProjectVT21.UserPage</title>
 </head>
 <body>
+	<%@ include file="Header.html" %>
+	<section id="main">
 	<form action="/ISProjectClient/MainSerlvet" method="post" id="userForm" onSubmit="return validateUserForm();">
 		<fieldset id="UserFS">
 			<legend>Enter User Information:</legend>
@@ -44,5 +46,6 @@
 		</fieldset>
 		<input name="operation" value="userPage" type=hidden>
 	</form>
+	</section>
 </body>
 </html>

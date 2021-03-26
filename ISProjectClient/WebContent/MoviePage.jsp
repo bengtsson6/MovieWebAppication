@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,8 @@
 <title>IsProjectVT21.MoviePage</title>
 </head>
 <body>
+	<%@ include file="Header.html" %>
+	<section id = "main">
 <form action="/ISProjectClient/MainSerlvet" method="post"  id = "moviePage" onSubmit="return validateMovieForm();">
 				<fieldset id="MovieFS">
 			<legend>Enter Movie Information:</legend>
@@ -48,5 +50,6 @@
 		</fieldset>
 		<input name="operation" value="moviePage" type=hidden>
 	</form>
+	</section>
 </body>
 </html>

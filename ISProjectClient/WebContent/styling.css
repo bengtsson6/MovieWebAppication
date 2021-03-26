@@ -1,7 +1,6 @@
 fieldset {
 	background-color: #968c8c;
 }
-
 body {
 	background-color: #bdb7b7;
 }
@@ -11,3 +10,36 @@ body {
 #selReleaseYear {
 	width: 132px;
 }
+.header {
+	float: top;
+	padding-left: 10px;
+	background-color: #968c8c;
+	overflow: hidden;
+	padding-bottom:50px;
+}
+.no-whitespace{
+	margin: 0;
+	padding: 0;
+}
+.header-right{
+	float: right;
+	background-color: #968c8c;
+}
+.header-left{
+	float: left;
+	background-color: #968c8c;
+}
+.header a{
+	float: left;
+	color: black;
+	text-align: center;
+	font-size: 18px;
+	text-decoration: none;
+	padding: 12px;
+	border-radius: 4px;
+}
+#main {
+	margin-top: 10px;
+	padding: 10px, 20px;
+}
+
