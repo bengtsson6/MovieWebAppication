@@ -14,3 +14,19 @@ function validateUserForm(){
 		return true;
 	}
 }
+function validateMovieForm() {
+	var responseLabel = document.getElementById("responseLabel");
+	var movieNameElement = document.getElementById("txtName");
+	
+	var movieName = movieNameElement.value;
+	
+	if (movieName == null || movieName == "") {
+		responseLabel.innerHTML = "Please enter Movie Name."
+			return false;
+	} 
+	else {
+		return true;
+	}
+	
+	
+}
