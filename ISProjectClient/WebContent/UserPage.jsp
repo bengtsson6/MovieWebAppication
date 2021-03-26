@@ -11,6 +11,7 @@
 <body>
 	<%@ include file="Header.html" %>
 	<section id="main">
+	<%@ include file="navigationBar.html"%>
 	<form action="/ISProjectClient/MainSerlvet" method="post" id="userForm" onSubmit="return validateUserForm();">
 		<fieldset id="UserFS">
 			<legend>Enter User Information:</legend>
