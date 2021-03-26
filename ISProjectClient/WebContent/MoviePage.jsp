@@ -9,6 +9,7 @@
 <title>IsProjectVT21.MoviePage</title>
 </head>
 <body>
+	<%@ include file="navigationBar.html" %>
 	<%@ include file="Header.html" %>
 	<section id = "main">
 <form action="/ISProjectClient/MainSerlvet" method="post"  id = "moviePage" onSubmit="return validateMovieForm();">
