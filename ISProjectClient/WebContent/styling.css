@@ -1,11 +1,18 @@
 fieldset {
 	background-color: #968c8c;
 	width: 50%;
+	border-color: #000000;
+	border-style: solid;
 }
 
 body {
 	background-color: #bdb7b7;
 	width: 1880px
+}
+legend{
+	color: #000000;
+	font-weight: bold;
+	font-size: larger;
 }
 
 #selBirthYear {
@@ -23,6 +30,7 @@ body {
 	overflow: hidden;
 	padding-bottom: 50px;
 	width: 100%;
+	border: 2px solid black;
 }
 
 .no-whitespace {
@@ -60,7 +68,7 @@ body {
 #nav {
 	float: left;
 	width: 15%;
-	background-color: #f1f1f1;
+	background-color: #968c8c;
 	padding: 10px 10px 200px 0px;
 	border-radius: 4px;
 	border: 2px solid black;
@@ -70,7 +78,7 @@ body {
 
 #nav a {
 	display: block;
-	color: ffffff;
+	color: #000000;
 	padding: 10px 10px;
 	text-decoration: none;
 }
@@ -89,9 +97,4 @@ body {
 #nav li:hover, #nav li:focus {
 	color: #666;
 	background-color: #d6d6d6;
-}
-
-#nav li.active {
-	background: #555;
-	color: #ffffff !important;
 }
