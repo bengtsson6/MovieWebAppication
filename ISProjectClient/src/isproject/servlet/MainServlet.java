@@ -1,8 +1,10 @@
 package isproject.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,14 +19,14 @@ import isproject.facade.FacadeLocal;
 /**
  * Servlet implementation class MainSerlvet
  */
-@WebServlet("/MainSerlvet")
-public class MainSerlvet extends HttpServlet {
+@WebServlet("/MainServlet")
+public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
 	FacadeLocal facade;
 
-	public MainSerlvet() {
+	public MainServlet() {
 		super();
 	}
 
@@ -32,14 +34,15 @@ public class MainSerlvet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		System.out.println("Hej");
+		String url = null;
 		String operation = request.getParameter("operation");
 		if (operation.equals("userPage")) {
+			url = "/UserPage.jsp";
 			if (request.getParameter("btnSubmit").equals("Add User")) {
 				UserProfile user = new UserProfile();
 				if (!request.getParameter("txtEmail").equals("")) {
@@ -48,20 +51,21 @@ public class MainSerlvet extends HttpServlet {
 				user.setUserName(request.getParameter("txtUserName"));
 				user.setBirthYear(request.getParameter("selBirthYear"));
 				facade.createUser(user);
-			}
-			else if(request.getParameter("btnSubmit").equals("Update User")) {
+				request.setAttribute("Success", "New User was succesfully added");
+			} else if (request.getParameter("btnSubmit").equals("Update User")) {
 				UserProfile user = new UserProfile();
 				user.setEmail(request.getParameter("txtEmail"));
 				user.setUserName(request.getParameter("txtUserName"));
 				user.setBirthYear(request.getParameter("selBirthYear"));
-				facade.updateUser(user);	
-			}
-			else if(request.getParameter("btnSubmit").equals("Delete User")) { //Delete, används ej i GUI i nuläget.
+				facade.updateUser(user);
+				request.setAttribute("Success", "New User was succesfully updated");
+			} else if (request.getParameter("btnSubmit").equals("Delete User")) { // Delete, används ej i GUI i nuläget.
 				String email = request.getParameter("txtEmail");
-				facade.deleteUser(email);	
+				facade.deleteUser(email);
 			}
 		}
 		if (operation.equals("moviePage")) {
+			url = "/MoviePage.jsp";
 			if (request.getParameter("btnSubmit").equals("Add Movie")) {
 				Movie movie = new Movie();
 				MovieId id = new MovieId();
@@ -72,8 +76,8 @@ public class MainSerlvet extends HttpServlet {
 				movie.setGenre(request.getParameter("txtGenre"));
 				movie.setStreamingService(request.getParameter("txtStreamingService"));
 				facade.createMovie(movie);
-			}
-			else if (request.getParameter("btnSubmit").equals("Update Movie")) {
+				request.setAttribute("Success", "New movie was succesfully added");
+			} else if (request.getParameter("btnSubmit").equals("Update Movie")) {
 				Movie movie = new Movie();
 				MovieId id = new MovieId();
 				id.setMovieName(request.getParameter("txtName"));
@@ -83,12 +87,23 @@ public class MainSerlvet extends HttpServlet {
 				movie.setGenre(request.getParameter("txtGenre"));
 				movie.setStreamingService(request.getParameter("txtStreamingService"));
 				facade.updateMovie(movie);
-			}
-			else if (request.getParameter("btnSubmit").equals("Delete Movie")) { //Delete, används ej i GUI i nuläget.
+				request.setAttribute("Success", "Movie was succesfully updated");
+			} else if (request.getParameter("btnSubmit").equals("Delete Movie")) { // Delete, används ej i GUI i
+																					// nuläget.
 				String movieName = request.getParameter("txtName");
 				String releaseYear = request.getParameter("selReleaseYear");
 				facade.deleteMovie(movieName, releaseYear);
 			}
+		}
+		if (operation.equals("showAllUsers")) {
+			url = "/UserPage.jsp";
+			List<UserProfile> allUsers = facade.findAllUsers();
+			request.setAttribute("allUsers", allUsers);
+
+		}
+		if (url != null) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+			dispatcher.forward(request, response);
 		}
 	}
 

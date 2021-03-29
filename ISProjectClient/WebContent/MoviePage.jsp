@@ -11,10 +11,13 @@
 <title>IsProjectVT21.MoviePage</title>
 </head>
 <body>
+	<%
+		String success = (String) request.getAttribute("Success");
+	%>
 	<%@ include file="Header.html"%>
 	<section id="main">
 		<%@ include file="navigationBar.html"%>
-		<form action="/ISProjectClient/MainSerlvet" method="post"
+		<form action="/ISProjectClient/MainServlet" method="post"
 			id="moviePage" onSubmit="return validateMovieForm();">
 			<fieldset id="MovieFS">
 				<legend>Enter Movie Information:</legend>
@@ -45,9 +48,20 @@
 				<input type="submit" name="btnSubmit" id="btnAddMoive"
 					value="Add Movie"> <input type="submit" name="btnSubmit"
 					id="btnUpdateMovie" value="Update Movie">
-				<p>
-					<label id="responseLabel"></label>
+				<%
+					if (success != null) {
+				%>
+				<p id = responseLabel class = "thick-font">
+					<b><%=success%></b>
 				</p>
+				<%
+					} else {
+				%>
+				<p id = responseLabel class = "thick-font"></p>
+				<%
+					}
+				%>
+
 			</fieldset>
 			<input name="operation" value="moviePage" type=hidden>
 		</form>
