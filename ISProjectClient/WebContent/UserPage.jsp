@@ -11,13 +11,13 @@
 <meta charset="ISO-8859-1">
 <title>IsProjectVT21.UserPage</title>
 </head>
-<body onload = "sendUserTableForm();">
+<body onload="sendTablesForm();">
 	<%
 		String success = (String) request.getAttribute("Success");
 		List<UserProfile> allUsers = (List<UserProfile>) request.getAttribute("allUsers");
 	%>
 	<%@ include file="Header.html"%>
-	<section id="main">
+	<section class="mainSection">
 		<%@ include file="navigationBar.html"%>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="userForm" onSubmit="return validateUserForm();">
@@ -25,9 +25,9 @@
 				<legend>Enter User Information:</legend>
 				<p>
 					<label for="txtEmail">User Email</label> <input type="text"
-						name="txtEmail" id="txtEmail" size=30 maxlength=35> <label
+						name="txtEmail" id="txtEmail"> <label
 						for="txtUserName">Full Name</label> <input type="text"
-						name="txtUserName" id="txtUserName" size=30 maxlength=35>
+						name="txtUserName" id="txtUserName">
 				</p>
 				<p>
 					<label for="selBirthYear">BirthYear</label> <select
@@ -63,44 +63,44 @@
 			</fieldset>
 			<input name="operation" value="userPage" type=hidden>
 		</form>
-	</section>
-	<br>
-	<section id="tableSection">
+		<br>
 		<%
 			if (allUsers == null) {
 		%>
 		<form action="/ISProjectClient/MainServlet" method="post"
-			id="loadAllUsersForm" name= "loadAllUsersForm" onload = "sendUserTableForm()" >
+			id="loadAllUsersForm" name="loadAllUsersForm"
+			onload="sendUserTableForm()">
 			<input name="operation" value="userPageAllUsers" type=hidden>
-			</form>
+		</form>
+		<%
+			} else {
+		%>
+		<table class = "dataTable">
+		<caption>All Users</caption>
+			<tr>
+				<th>Email</th>
+				<th>Name</th>
+				<th>Birth Year</th>
+			</tr>
 			<%
-				} else {
+				for (UserProfile user : allUsers) {
+						String userEmail = user.getEmail();
+						String userName = user.getUserName();
+						String userBirthYear = user.getBirthYear();
 			%>
-			<table class="presentDataTable">
-				<tr>
-					<th>Email</th>
-					<th>Name</th>
-					<th>Birth Year</th>
-				</tr>
-				<%
-					for (UserProfile user : allUsers) {
-							String userEmail = user.getEmail();
-							String userName = user.getUserName();
-							String userBirthYear = user.getBirthYear();
-				%>
-				<tr>
-					<td><%=userEmail%></td>
-					<td><%=userName%></td>
-					<td><%=userBirthYear%></td>
-				</tr>
-				<%
-					}
-				%>
-
-			</table>
+			<tr>
+				<td><%=userEmail%></td>
+				<td><%=userName%></td>
+				<td><%=userBirthYear%></td>
+			</tr>
 			<%
 				}
 			%>
+
+		</table>
+		<%
+			}
+		%>
 	</section>
 </body>
 </html>

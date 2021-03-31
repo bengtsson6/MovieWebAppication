@@ -74,7 +74,7 @@ public class MainServlet extends HttpServlet {
 			url = "/UserPage.jsp";
 			List<UserProfile> allUsers = facade.findAllUsers();
 			request.setAttribute("allUsers", allUsers);
-			
+
 		}
 		if (operation.equals("moviePage")) {
 			url = "/MoviePage.jsp";
@@ -85,10 +85,12 @@ public class MainServlet extends HttpServlet {
 				id.setReleaseYear(request.getParameter("selReleaseYear"));
 				movie.setId(id);
 				movie.setDirector(request.getParameter("txtDirector"));
-				movie.setGenre(request.getParameter("txtGenre"));
-				movie.setStreamingService(request.getParameter("txtStreamingService"));
+				movie.setGenre(request.getParameter("selGenre"));
+				movie.setStreamingService(request.getParameter("selStreamingService"));
 				facade.createMovie(movie);
 				request.setAttribute("Success", "New movie was succesfully added");
+				List<Movie> allMovies = facade.findAllMovie();
+				request.setAttribute("allMovies", allMovies);
 			} else if (request.getParameter("btnSubmit").equals("Update Movie")) {
 				Movie movie = new Movie();
 				MovieId id = new MovieId();
@@ -96,9 +98,11 @@ public class MainServlet extends HttpServlet {
 				id.setReleaseYear(request.getParameter("selReleaseYear"));
 				movie.setId(id);
 				movie.setDirector(request.getParameter("txtDirector"));
-				movie.setGenre(request.getParameter("txtGenre"));
-				movie.setStreamingService(request.getParameter("txtStreamingService"));
+				movie.setGenre(request.getParameter("selGenre"));
+				movie.setStreamingService(request.getParameter("selStreamingService"));
 				facade.updateMovie(movie);
+				List<Movie> allMovies = facade.findAllMovie();
+				request.setAttribute("allMovies", allMovies);
 				request.setAttribute("Success", "Movie was succesfully updated");
 			} else if (request.getParameter("btnSubmit").equals("Delete Movie")) { // Delete, används ej i GUI i
 																					// nuläget.
@@ -106,6 +110,12 @@ public class MainServlet extends HttpServlet {
 				String releaseYear = request.getParameter("selReleaseYear");
 				facade.deleteMovie(movieName, releaseYear);
 			}
+		}
+		if (operation.equals("moviePageAllMovies")) {
+			System.out.println("HEJ");
+			url = "/MoviePage.jsp";
+			List<Movie> allMovies = facade.findAllMovie();
+			request.setAttribute("allMovies", allMovies);
 		}
 
 		if (url != null) {
