@@ -75,9 +75,18 @@ tr:nth-child(even){
 	background-color : #968c8c;
 }
 
+tr:hover{
+	font-weight:bold;
+	font-size:17px;
+	background-color: #d7d9d7; 
+}
+
 td,th {
 	border: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
+
 caption{
 	text-align : left;
 	font-weight: bold;
