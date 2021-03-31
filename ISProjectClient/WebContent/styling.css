@@ -64,6 +64,10 @@ legend{
 	float: left;
 	width: 100%;
 }
+#tableSection{
+	float: center;
+	width: 50%;
+}
 
 #nav {
 	float: left;

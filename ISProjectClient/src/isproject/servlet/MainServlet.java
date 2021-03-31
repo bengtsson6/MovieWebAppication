@@ -41,6 +41,7 @@ public class MainServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String url = null;
 		String operation = request.getParameter("operation");
+		System.out.println(operation);
 		if (operation.equals("userPage")) {
 			url = "/UserPage.jsp";
 			if (request.getParameter("btnSubmit").equals("Add User")) {
@@ -51,18 +52,29 @@ public class MainServlet extends HttpServlet {
 				user.setUserName(request.getParameter("txtUserName"));
 				user.setBirthYear(request.getParameter("selBirthYear"));
 				facade.createUser(user);
+				List<UserProfile> allUsers = facade.findAllUsers();
 				request.setAttribute("Success", "New User was succesfully added");
+				request.setAttribute("allUsers", allUsers);
 			} else if (request.getParameter("btnSubmit").equals("Update User")) {
 				UserProfile user = new UserProfile();
 				user.setEmail(request.getParameter("txtEmail"));
 				user.setUserName(request.getParameter("txtUserName"));
 				user.setBirthYear(request.getParameter("selBirthYear"));
 				facade.updateUser(user);
+				List<UserProfile> allUsers = facade.findAllUsers();
+				request.setAttribute("allUsers", allUsers);
 				request.setAttribute("Success", "New User was succesfully updated");
 			} else if (request.getParameter("btnSubmit").equals("Delete User")) { // Delete, används ej i GUI i nuläget.
 				String email = request.getParameter("txtEmail");
 				facade.deleteUser(email);
 			}
+		}
+		if (operation.equals("userPageAllUsers")) {
+			System.out.println("HEJ");
+			url = "/UserPage.jsp";
+			List<UserProfile> allUsers = facade.findAllUsers();
+			request.setAttribute("allUsers", allUsers);
+			
 		}
 		if (operation.equals("moviePage")) {
 			url = "/MoviePage.jsp";
@@ -95,12 +107,7 @@ public class MainServlet extends HttpServlet {
 				facade.deleteMovie(movieName, releaseYear);
 			}
 		}
-		if (operation.equals("showAllUsers")) {
-			url = "/UserPage.jsp";
-			List<UserProfile> allUsers = facade.findAllUsers();
-			request.setAttribute("allUsers", allUsers);
 
-		}
 		if (url != null) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
 			dispatcher.forward(request, response);
