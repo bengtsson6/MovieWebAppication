@@ -25,9 +25,10 @@
 				<legend>Enter User Information:</legend>
 				<p>
 					<label for="txtEmail">User Email</label> <input type="text"
-						name="txtEmail" id="txtEmail"> <label
-						for="txtUserName">Full Name</label> <input type="text"
-						name="txtUserName" id="txtUserName">
+						name="txtEmail" id="txtEmail" class="txtInputEnterInformation">
+					<label for="txtUserName">Full Name</label> <input type="text"
+						name="txtUserName" id="txtUserName"
+						class="txtInputEnterInformation">
 				</p>
 				<p>
 					<label for="selBirthYear">BirthYear</label> <select
@@ -63,6 +64,8 @@
 			</fieldset>
 			<input name="operation" value="userPage" type=hidden>
 		</form>
+		<br> <input type="text" id="searchField"
+			onkeyup="filterTableFunction()" placeholder="Search by Name">
 		<br>
 		<%
 			if (allUsers == null) {
@@ -75,8 +78,8 @@
 		<%
 			} else {
 		%>
-		<table class = "dataTable">
-		<caption>All Users</caption>
+		<table id="dataTable" class="dataTable">
+			<caption>All Users</caption>
 			<tr>
 				<th>Email</th>
 				<th>Name</th>
@@ -94,7 +97,7 @@
 				<td><%=userBirthYear%></td>
 			</tr>
 			<%
-				}
+					}
 			%>
 
 		</table>

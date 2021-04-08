@@ -128,14 +128,14 @@ caption{
 .thick-font{
 	font-weight: bold;
 }
-input[type=text]{
+.txtInputEnterInformation{
 	width: 25%;
 	padding: 3px 3px;
 	margin: 5px;
 	box-sizing: border-box;
 	border-radius: 5px;
 }
-input[type=text]:focus {
+.txtInputEnterInformation :focus {
 	border: 2px solid #69ff78;
 }
 select {
@@ -158,4 +158,11 @@ input[type=submit]{
 }
 input[type=submit]:hover {
 	background: linear-gradient(to bottom, #b5b5b5 5%, #616161 100%);
+}
+#searchField {
+	width: 50%;
+	border: 1px solid black;
+	margin-bottom: 12px;
+	padding: 12px;
+	border-radius: 5px;
 }

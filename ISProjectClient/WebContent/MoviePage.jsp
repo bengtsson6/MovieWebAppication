@@ -26,9 +26,9 @@
 				<legend>Enter Movie Information:</legend>
 				<p>
 					<label for="txtName">Name</label> <input type="text" id="txtName"
-						name="txtName"> <label
+						name="txtName" class = "txtInputEnterInformation"> <label
 						for="txtDirector">Director</label> <input type="text"
-						name="txtDirector">
+						name="txtDirector" id="txtDirector" class = "txtInputEnterInformation">
 				</p>
 				<p>
 					<label for="selGenre">Genre</label> <select
