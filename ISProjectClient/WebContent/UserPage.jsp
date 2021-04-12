@@ -65,7 +65,7 @@
 			<input name="operation" value="userPage" type=hidden>
 		</form>
 		<br> <input type="text" id="searchField"
-			onkeyup="filterTableFunction()" placeholder="Search by Name">
+			onkeyup="filterTableFunction()" placeholder="Search by Email">
 		<br>
 		<%
 			if (allUsers == null) {
