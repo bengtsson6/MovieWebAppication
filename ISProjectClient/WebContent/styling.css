@@ -4,7 +4,12 @@ fieldset {
 	border-color: #000000;
 	border-style: solid;
 }
-
+.header img {
+  float: left;
+  width: 450px;
+  height: 200px;
+  background: #555;
+}
 body {
 	background-color: #bdb7b7;
 	width: 1880px;
@@ -36,26 +41,25 @@ legend{
 .no-whitespace {
 	margin: 0;
 	padding: 0;
+	margin-left: 750px;
 }
-
 .header-right {
 	float: right;
 	background-color: #968c8c;
+	
 }
-
 .header-left {
 	float: left;
 	background-color: #968c8c;
+	width: 70%
 }
-
-.header a {
+.header-right a {
 	float: left;
 	color: black;
 	text-align: center;
 	font-size: 18px;
 	text-decoration: none;
 	padding: 12px;
-	border-radius: 4px;
 }
 
 .mainSection {
