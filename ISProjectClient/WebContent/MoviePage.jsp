@@ -6,7 +6,8 @@
 <%@ page import="java.util.List"%>
 <html>
 <head>
-<script src="validationScripts.js">	</script>
+<script src="validationScripts.js">	
+</script>
 <script src="ISProjectScripts.js"></script>
 <link rel="stylesheet" type="text/css" href="styling.css">
 <meta charset="ISO-8859-1">
@@ -18,7 +19,7 @@
 		String success = (String) request.getAttribute("Success");
 	%>
 	<%@ include file="Header.html"%>
-	<section class= "mainSection">
+	<section class="mainSection">
 		<%@ include file="navigationBar.html"%>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="moviePage" onSubmit="return validateMovieForm();">
@@ -26,13 +27,14 @@
 				<legend>Enter Movie Information:</legend>
 				<p>
 					<label for="txtName">Name</label> <input type="text" id="txtName"
-						name="txtName" class = "txtInputEnterInformation"> <label
+						name="txtName" class="txtInputEnterInformation"> <label
 						for="txtDirector">Director</label> <input type="text"
-						name="txtDirector" id="txtDirector" class = "txtInputEnterInformation">
+						name="txtDirector" id="txtDirector"
+						class="txtInputEnterInformation">
 				</p>
 				<p>
-					<label for="selGenre">Genre</label> <select
-						name="selGenre" id=selGenre>
+					<label for="selGenre">Genre</label> <select name="selGenre"
+						id=selGenre>
 						<option>Action</option>
 						<option>Comedy</option>
 						<option>Drama</option>
@@ -43,10 +45,8 @@
 						<option>Sci-Fi</option>
 						<option>War</option>
 						<option>Western</option>
-						</select>
-						<label
-						for="selStreamingService">Streaming Service</label> <select
-						id ="selStreamingService" name="selStreamingService">
+					</select> <label for="selStreamingService">Streaming Service</label> <select
+						id="selStreamingService" name="selStreamingService">
 						<option>None</option>
 						<option>AppleTV</option>
 						<option>C More</option>
@@ -58,7 +58,7 @@
 						<option>Prime Video</option>
 						<option>Quibi</option>
 						<option>Viaplay</option>
-						</select>
+					</select>
 				</p>
 				<p>
 					<label for="selReleaseYear">Release Year</label> <select
@@ -91,6 +91,8 @@
 			</fieldset>
 			<input name="operation" value="moviePage" type=hidden>
 		</form>
+		<br> <input type="text" id="searchField"
+			onkeyup="filterTableFunction()" placeholder="Search by Title">
 		<br>
 		<%
 			if (allMovies == null) {
@@ -102,8 +104,8 @@
 		<%
 			} else {
 		%>
-		<table class = "dataTable">
-		<caption>All Movies</caption>
+		<table id = "dataTable" class="dataTable">
+			<caption>All Movies</caption>
 			<tr>
 				<th>Title</th>
 				<th>Release Year</th>
@@ -113,13 +115,13 @@
 			</tr>
 			<%
 				for (Movie movie : allMovies) {
-					String title = movie.getId().getMovieName();
-					String releaseYear = movie.getId().getReleaseYear();
-					String director = movie.getDirector();
-					String genre = movie.getGenre();
-					String streamingService = movie.getStreamingService();
+						String title = movie.getId().getMovieName();
+						String releaseYear = movie.getId().getReleaseYear();
+						String director = movie.getDirector();
+						String genre = movie.getGenre();
+						String streamingService = movie.getStreamingService();
 			%>
-			<tr>
+			<tr onclick = "rowClicked(this)">
 				<td><%=title%></td>
 				<td><%=releaseYear%></td>
 				<td><%=director%></td>
@@ -129,11 +131,15 @@
 			<%
 				}
 			%>
-
 		</table>
 		<%
 			}
 		%>
+		<form action="/ISProjectClient/MainServlet" method="post" id = "sendToRating" name = "sendToRating">
+			<input name = "inputMovieTitle" id = "inputMovieTitle" value = "" type = "hidden">
+			<input name = "inputReleaseYear" id = "inputReleaserYear" value = "" type = "hidden">
+			<input name = "operation" value = "moviePageToRating" type = "hidden">
+		</form>
 	</section>
 </body>
 </html>
