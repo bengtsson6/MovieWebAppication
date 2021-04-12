@@ -6,8 +6,8 @@ fieldset {
 }
 .header img {
   float: left;
-  width: 450px;
-  height: 200px;
+  width: 350px;
+  height: 150px;
   background: #555;
 }
 body {
@@ -33,7 +33,7 @@ legend{
 	padding-left: 10px;
 	background-color: #968c8c;
 	overflow: hidden;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 	width: 100%;
 	border: 2px solid black;
 }
