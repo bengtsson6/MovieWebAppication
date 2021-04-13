@@ -135,9 +135,9 @@
 		<%
 			}
 		%>
-		<form action="/ISProjectClient/MainServlet" method="post" id = "sendToRating" name = "sendToRating">
+		<form action="/ISProjectClient/MainServlet" method="post" id = "sendToRatingForm" name = "sendToRatingForm">
 			<input name = "inputMovieTitle" id = "inputMovieTitle" value = "" type = "hidden">
-			<input name = "inputReleaseYear" id = "inputReleaserYear" value = "" type = "hidden">
+			<input name = "inputReleaseYear" id = "inputReleaseYear" value = "" type = "hidden">
 			<input name = "operation" value = "moviePageToRating" type = "hidden">
 		</form>
 	</section>

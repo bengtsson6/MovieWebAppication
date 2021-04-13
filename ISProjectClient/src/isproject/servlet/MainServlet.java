@@ -1,6 +1,7 @@
 package isproject.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import isproject.ejb.Movie;
 import isproject.ejb.MovieId;
+import isproject.ejb.Rating;
+import isproject.ejb.RatingId;
 import isproject.ejb.UserProfile;
 import isproject.facade.FacadeLocal;
 
@@ -41,7 +44,6 @@ public class MainServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String url = null;
 		String operation = request.getParameter("operation");
-		System.out.println(operation);
 		if (operation.equals("userPage")) {
 			url = "/UserPage.jsp";
 			if (request.getParameter("btnSubmit").equals("Add User")) {
@@ -70,7 +72,6 @@ public class MainServlet extends HttpServlet {
 			}
 		}
 		if (operation.equals("userPageAllUsers")) {
-			System.out.println("HEJ");
 			url = "/UserPage.jsp";
 			List<UserProfile> allUsers = facade.findAllUsers();
 			request.setAttribute("allUsers", allUsers);
@@ -112,10 +113,23 @@ public class MainServlet extends HttpServlet {
 			}
 		}
 		if (operation.equals("moviePageAllMovies")) {
-			System.out.println("HEJ");
 			url = "/MoviePage.jsp";
 			List<Movie> allMovies = facade.findAllMovie();
 			request.setAttribute("allMovies", allMovies);
+		}
+		if(operation.equals("ratingPage")) {
+			Rating rating = new Rating();
+			RatingId id = new RatingId();
+			id.setEmail(request.getParameter("txtName"));
+		}
+		if(operation.equals("moviePageToRating")) {
+			url = "/RatingPage.jsp";
+			String title = request.getParameter("inputMovieTitle");
+			String year = request.getParameter("inputReleaseYear");
+			ArrayList<String> allEmails = this.getAllUserEmails(); 
+			request.setAttribute("title", title);
+			request.setAttribute("releaseYear", year);
+			request.setAttribute("allEmails", allEmails);
 		}
 
 		if (url != null) {
@@ -123,5 +137,12 @@ public class MainServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 	}
-
+	public ArrayList<String> getAllUserEmails(){
+		ArrayList<String> allEmails = new ArrayList<String>();
+		ArrayList<UserProfile> allUsers = (ArrayList<UserProfile>) facade.findAllUsers();
+		for (UserProfile user : allUsers) {
+			allEmails.add(user.getEmail());
+		}
+		return allEmails;
+	}
 }

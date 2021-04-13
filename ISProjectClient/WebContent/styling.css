@@ -51,7 +51,7 @@ legend{
 .header-left {
 	float: left;
 	background-color: #968c8c;
-	width: 70%
+	width: 70%;
 }
 .header-right a {
 	float: left;
@@ -169,4 +169,7 @@ input[type=submit]:hover {
 	margin-bottom: 12px;
 	padding: 12px;
 	border-radius: 5px;
+}
+label{
+	vertical-align: center;
 }
