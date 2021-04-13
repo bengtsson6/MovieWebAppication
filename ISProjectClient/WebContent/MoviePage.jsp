@@ -129,7 +129,8 @@
 				<td><%=director%></td>
 				<td><%=genre%></td>
 				<td><%=streamingService%></td>
-				<td class = "buttonCell"> <button onclick = "rowButtonClicked(this)" class = "rowButton">Add rating</button><button class = "rowButton">Show reviews</button> </td>
+				<td class = "buttonCell"> <button onclick = "rowButtonClicked(this)" class = "rowButton" name = "addRating">Add rating</button>
+				<button onclick = "rowButtonClicked(this)" class = "rowButton" name = "showRating">Show reviews</button> </td>
 			</tr>
 			<%
 				}
@@ -141,6 +142,7 @@
 		<form action="/ISProjectClient/MainServlet" method="post" id = "sendToRatingForm" name = "sendToRatingForm">
 			<input name = "inputMovieTitle" id = "inputMovieTitle" value = "" type = "hidden">
 			<input name = "inputReleaseYear" id = "inputReleaseYear" value = "" type = "hidden">
+			<input name = "btnValue" id = "btnValue" value = "" type = "hidden">
 			<input name = "operation" value = "moviePageToRating" type = "hidden">
 		</form>
 	</section>

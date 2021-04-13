@@ -46,5 +46,11 @@ function rowButtonClicked(button) {
 	var year = tdYear.innerText;
 	document.getElementById("inputMovieTitle").value = title;
 	document.getElementById("inputReleaseYear").value = year;
+	if (button.name === "addRating"){
+		document.getElementById("btnValue").value = "addBtn";
+	}
+	if (button.name === "showRating"){
+		document.getElementById("btnValue").value = "showBtn";
+	}
 	form.submit();
 }
