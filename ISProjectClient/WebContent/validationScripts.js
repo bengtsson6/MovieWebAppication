@@ -23,7 +23,22 @@ function validateMovieForm() {
 	var movieName = movieNameElement.value;
 	
 	if (movieName == null || movieName == "") {
-		responseLabel.innerHTML = "Please enter Movie Name."
+		responseLabel.innerHTML = "Please enter Movie Name.";
 			return false;
 	} 	
+}
+
+function validateRatingForm(){
+	var responseLabel = document.getElementById("responseLabel");
+	var movieTitleElement = document.getElementById("txtTitle");
+	var releaseYearElement = document.getElementById("txtReleaseYear");
+	var userEmailElement = document.getElementById("selEmail")
+	var title = movieTitleElement.value;
+	var releaseYear = releaseYearElement.value;
+	var userEmail = userEmailElement.value;
+	
+	if(title == null || title == "" || releaseYear == null || releaseYear == "" || userEmail == null || userEmail == "") {
+		responseLabel.innerHTML = "Please enter the mandatory fields";
+		return false;
+	}
 }

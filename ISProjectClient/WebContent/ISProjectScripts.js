@@ -35,28 +35,14 @@ function filterTableFunction() {
 	}
 }
 
-function sendRowToRatingForm() {
-	var table = document.getElementById("dataTable");
-	if (table != null) {
-		var rows = table.getElementsByTagName("tr");
-		for (var i = 1; i < rows.length; i++) {
-			table.getElementsByTagName("tr")[i].onclick = funtion()
-			{
-				window.alert("HEJ");
-				var cellTitle = this.getElementsByTag("td")[0];
-				var cellTitleContent = cellTitle.innerHTML;
-				window.alert(cellTitleContent);
-			}
-			;
-		}
-	}
-}
 
 function rowClicked(row) {
+	var form = document.getElementById("sendToRatingForm");
 	var tdTitle = row.getElementsByTagName("td")[0];
 	var tdYear = row.getElementsByTagName("td")[1];
 	var title = tdTitle.innerText;
 	var year = tdYear.innerText;
 	document.getElementById("inputMovieTitle").value = title;
 	document.getElementById("inputReleaseYear").value = year;
+	form.submit();
 }
