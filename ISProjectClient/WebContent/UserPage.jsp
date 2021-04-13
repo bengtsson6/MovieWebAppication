@@ -19,6 +19,7 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="navigationBar.html"%>
+		<%@ include file="Weather.html" %>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="userForm" onSubmit="return validateUserForm();">
 			<fieldset id="UserFS">

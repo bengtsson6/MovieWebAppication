@@ -75,20 +75,38 @@ legend{
 	border:2px solid black;
 	border-collapse: collapse;
 }
-tr:nth-child(even){
+.dataTable tr:nth-child(even){
 	background-color : #968c8c;
 }
 
-tr:hover{
+.dataTable tr:hover{
 	font-weight:bold;
 	font-size:17px;
 	background-color: #d7d9d7; 
 }
 
-td,th {
+.dataTable td,th {
 	border: 1px solid black;
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+aside {
+	float: right;
+	border: 2px solid black;
+	width: 25%;
+	margin-top: 10px;
+	background-color: #968c8c;
+	
+}
+#asideTable {
+	text-align: left;
+	border-collapse: collapse;
+	font-size: 17px;
+}
+#asideTable th, td {
+	border: 0px;
+	font-weight: normal;
+	padding: 10px;
 }
 
 caption{
