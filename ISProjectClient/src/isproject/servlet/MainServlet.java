@@ -118,9 +118,21 @@ public class MainServlet extends HttpServlet {
 			request.setAttribute("allMovies", allMovies);
 		}
 		if(operation.equals("ratingPage")) {
+			url = "/RatingPage.jsp";
 			Rating rating = new Rating();
 			RatingId id = new RatingId();
-			id.setEmail(request.getParameter("txtName"));
+			id.setEmail(request.getParameter("selEmail"));
+			id.setMovieName(request.getParameter("txtTitle"));
+			id.setReleaseYear(request.getParameter("txtReleaseYear"));
+			rating.setId(id);
+			int grade = Integer.parseInt(request.getParameter("selRating"));
+			rating.setRatingGrade(grade);
+			rating.setReview(request.getParameter("textAreaReview"));
+			facade.createRating(rating);
+			ArrayList<String> allEmails = this.getAllUserEmails(); 
+			request.setAttribute("Success", "Rating was succesfully added");
+			request.setAttribute("Success", "Rating was succesfully added");
+			request.setAttribute("allEmails", allEmails);
 		}
 		if(operation.equals("moviePageToRating")) {
 			url = "/RatingPage.jsp";

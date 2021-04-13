@@ -36,7 +36,9 @@ function filterTableFunction() {
 }
 
 
-function rowClicked(row) {
+function rowButtonClicked(button) {
+	var td = button.parentElement;
+	var row = td.parentElement;
 	var form = document.getElementById("sendToRatingForm");
 	var tdTitle = row.getElementsByTagName("td")[0];
 	var tdYear = row.getElementsByTagName("td")[1];

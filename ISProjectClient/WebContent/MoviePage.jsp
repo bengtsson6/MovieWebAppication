@@ -113,6 +113,7 @@
 				<th>Director</th>
 				<th>Genre</th>
 				<th>Streaming Service</th>
+				<th>Options
 			</tr>
 			<%
 				for (Movie movie : allMovies) {
@@ -122,12 +123,13 @@
 						String genre = movie.getGenre();
 						String streamingService = movie.getStreamingService();
 			%>
-			<tr onclick = "rowClicked(this)">
+			<tr>
 				<td><%=title%></td>
 				<td><%=releaseYear%></td>
 				<td><%=director%></td>
 				<td><%=genre%></td>
 				<td><%=streamingService%></td>
+				<td class = "buttonCell"> <button onclick = "rowButtonClicked(this)" class = "rowButton">Add rating</button><button class = "rowButton">Show reviews</button> </td>
 			</tr>
 			<%
 				}

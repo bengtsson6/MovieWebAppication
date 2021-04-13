@@ -75,6 +75,9 @@ legend{
 	border:2px solid black;
 	border-collapse: collapse;
 }
+.rowButton {
+	cursor: pointer;
+}
 .dataTable tr:nth-child(even){
 	background-color : #968c8c;
 }

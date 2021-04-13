@@ -27,27 +27,33 @@
 				<%
 					if (movieTitle != null && releaseYear != null) {
 				%>
-				<label for="selEmail">User Email: </label> <select name="selEmail"
-					id="selEmail">
-					<%for(String email: allEmails) { %>
-					<option><%=email%></option>
-					<%}%>
-					</select> <label for="txtTitle">Title: </label> <input
+				 <label for="txtTitle">Title: </label> <input
 					type="text" name="txtTitle" id="txtTitle" value="<%=movieTitle%>"
 					class="txtInputEnterInformation"> <label
 					for="txtReleaseYear">Release Year: </label> <input type="text"
 					name="txtReleaseYear" id="txtReleaseYear"
 					class="txtInputEnterInformation" value="<%=releaseYear%>">
+					<br>
+					<p>If you want to register a user <a href = "UserPage.jsp">click here</a> </p>
+				<label for="selEmail">User Email: </label> <select name="selEmail"
+					id="selEmail">
+					<%for(String email: allEmails) { %>
+					<option><%=email%></option>
+					<%}%>
+					</select>
 				<%
 					} else {
 				%>
-				<label for="selEmail">User Email: </label> <select name="txtEmail"
-					id="txtEmail"></select> <label for="txtTitle">Title</label> <input
+				 <label for="txtTitle">Title</label> <input
 					type="text" name="txtTitle" id="txtTitle"
 					class="txtInputEnterInformation"> <label
 					for="txtReleaseYear">Release Year: </label> <input type="text"
 					name="txtReleaseYear" id="txtReleaseYear"
 					class="txtInputEnterInformation">
+					<br>
+					<p>If you want to register a user <a href = "UserPage.jsp">click here</a> </p>
+					<label for="selEmail">User Email: </label> <select name="selEmail"
+					id="selEmail"></select>
 				<%
 					}
 				%>
