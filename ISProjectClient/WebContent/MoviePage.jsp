@@ -20,6 +20,7 @@
 	<%@ include file="Header.html"%>
 	<section class= "mainSection">
 		<%@ include file="navigationBar.html"%>
+		<%@ include file="Weather.html" %>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="moviePage" onSubmit="return validateMovieForm();">
 			<fieldset id="MovieFS">
