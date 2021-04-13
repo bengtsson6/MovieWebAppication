@@ -3,6 +3,7 @@ package isproject.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -117,7 +118,7 @@ public class MainServlet extends HttpServlet {
 			List<Movie> allMovies = facade.findAllMovie();
 			request.setAttribute("allMovies", allMovies);
 		}
-		if(operation.equals("ratingPage")) {
+		if (operation.equals("ratingPage")) {
 			url = "/RatingPage.jsp";
 			Rating rating = new Rating();
 			RatingId id = new RatingId();
@@ -129,27 +130,39 @@ public class MainServlet extends HttpServlet {
 			rating.setRatingGrade(grade);
 			rating.setReview(request.getParameter("textAreaReview"));
 			facade.createRating(rating);
-			ArrayList<String> allEmails = this.getAllUserEmails(); 
+			ArrayList<String> allEmails = this.getAllUserEmails();
 			request.setAttribute("Success", "Rating was succesfully added");
 			request.setAttribute("Success", "Rating was succesfully added");
 			request.setAttribute("allEmails", allEmails);
 		}
-		if(operation.equals("moviePageToRating")) {
-			url = "/RatingPage.jsp";
+		if (operation.equals("moviePageToRating")) {
 			String title = request.getParameter("inputMovieTitle");
 			String year = request.getParameter("inputReleaseYear");
-			ArrayList<String> allEmails = this.getAllUserEmails(); 
-			request.setAttribute("title", title);
-			request.setAttribute("releaseYear", year);
-			request.setAttribute("allEmails", allEmails);
+			if (request.getParameter("btnValue").equals("addBtn")) {
+				url = "/RatingPage.jsp";
+				ArrayList<String> allEmails = this.getAllUserEmails();
+				request.setAttribute("title", title);
+				request.setAttribute("releaseYear", year);
+				request.setAttribute("allEmails", allEmails);
+			}
+			if (request.getParameter("btnValue").equals("showBtn")) {
+				System.out.println("Hello from showBtn");
+				url = "/ShowReview.jsp";
+				Movie movie = facade.findMovieById(title, year);
+				Set<Rating> tmp = movie.getRatings();
+				List<Rating> ratings = new ArrayList<Rating>(tmp);
+				request.setAttribute("allRatings", ratings);
+				request.setAttribute("title", title);
+				request.setAttribute("year", year);
+			}
 		}
-
 		if (url != null) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
 	}
-	public ArrayList<String> getAllUserEmails(){
+
+	public ArrayList<String> getAllUserEmails() {
 		ArrayList<String> allEmails = new ArrayList<String>();
 		ArrayList<UserProfile> allUsers = (ArrayList<UserProfile>) facade.findAllUsers();
 		for (UserProfile user : allUsers) {
