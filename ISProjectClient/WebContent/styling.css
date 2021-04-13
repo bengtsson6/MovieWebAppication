@@ -191,3 +191,18 @@ input[type=submit]:hover {
 label{
 	vertical-align: center;
 }
+.textSection {
+	border: 2px solid black;
+	background-color: #968c8c;
+	margin-left: 500px; 
+	margin-top: 10px;
+	width: 40%;
+	padding: 10px;
+}
+#titleHomePage {
+	margin-top: 0px;
+	font-size: 30px:
+}
+#txtHomePage {
+	font-size: 17px;
+}
