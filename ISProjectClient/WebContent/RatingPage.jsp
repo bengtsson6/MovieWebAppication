@@ -29,10 +29,10 @@
 				%>
 				 <label for="txtTitle">Title: </label> <input
 					type="text" name="txtTitle" id="txtTitle" value="<%=movieTitle%>"
-					class="txtInputEnterInformation"> <label
+					class="txtInputEnterInformation" readonly> <label
 					for="txtReleaseYear">Release Year: </label> <input type="text"
 					name="txtReleaseYear" id="txtReleaseYear"
-					class="txtInputEnterInformation" value="<%=releaseYear%>">
+					class="txtInputEnterInformation" value="<%=releaseYear%>" readonly>
 					<br>
 					<p>If you want to register a user <a href = "UserPage.jsp">click here</a> </p>
 				<label for="selEmail">User Email: </label> <select name="selEmail"
@@ -51,7 +51,7 @@
 					name="txtReleaseYear" id="txtReleaseYear"
 					class="txtInputEnterInformation">
 					<br>
-					<p>If you want to register a user <a href = "UserPage.jsp">click here</a> </p>
+					<p>If you want to register a new user <a href = "UserPage.jsp">click here</a> </p>
 					<label for="selEmail">User Email: </label> <select name="selEmail"
 					id="selEmail"></select>
 				<%
@@ -74,8 +74,8 @@
 				</div>
 				<br> <br> 
 					<input type="submit" name="btnSubmit"
-					id="btnAddRating" value="Add Rating"><input type="submit"
-					name="btnSubmit" id="btnViewRating" value="View Ratings">
+					id="btnAddRating" value="Add Rating">
+					<button onclick = "window.location.href = 'MoviePage.jsp'" type = "button">Back to Movies</button>
 				<%
 					if (success != null) {
 				%>
