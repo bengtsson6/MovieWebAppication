@@ -24,10 +24,11 @@
 			id="userForm" onSubmit="return validateUserForm();">
 			<fieldset id="UserFS">
 				<legend>Enter User Information:</legend>
+				<p>Fields marked with "*" is mandatory</p>
 				<p>
-					<label for="txtEmail">User Email</label> <input type="text"
+					<label for="txtEmail">User Email: *</label> <input type="text"
 						name="txtEmail" id="txtEmail" class="txtInputEnterInformation">
-					<label for="txtUserName">Full Name</label> <input type="text"
+					<label for="txtUserName">Full Name: *</label> <input type="text"
 						name="txtUserName" id="txtUserName"
 						class="txtInputEnterInformation">
 				</p>

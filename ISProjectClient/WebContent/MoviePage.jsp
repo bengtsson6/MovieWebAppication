@@ -26,8 +26,9 @@
 			id="moviePage" onSubmit="return validateMovieForm();">
 			<fieldset id="MovieFS">
 				<legend>Enter Movie Information:</legend>
+				<p>Fields marked with "*" is mandatory</p>
 				<p>
-					<label for="txtName">Name</label> <input type="text" id="txtName"
+					<label for="txtName">Title:*</label> <input type="text" id="txtName"
 						name="txtName" class="txtInputEnterInformation"> <label
 						for="txtDirector">Director</label> <input type="text"
 						name="txtDirector" id="txtDirector"
@@ -62,7 +63,7 @@
 					</select>
 				</p>
 				<p>
-					<label for="selReleaseYear">Release Year</label> <select
+					<label for="selReleaseYear">Release Year: *</label> <select
 						name="selReleaseYear" id="selReleaseYear">
 						<%
 							for (int i = 1930; i < 2022; i++) {

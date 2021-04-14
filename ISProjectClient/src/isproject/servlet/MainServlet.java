@@ -130,23 +130,23 @@ public class MainServlet extends HttpServlet {
 			rating.setRatingGrade(grade);
 			rating.setReview(request.getParameter("textAreaReview"));
 			facade.createRating(rating);
-			ArrayList<String> allEmails = this.getAllUserEmails();
-			request.setAttribute("Success", "Rating was succesfully added");
+			List<String> allEmails = facade.getAllUserEmails();
 			request.setAttribute("Success", "Rating was succesfully added");
 			request.setAttribute("allEmails", allEmails);
+			request.setAttribute("title", (request.getParameter("txtTitle")));
+			request.setAttribute("releaseYear", (request.getParameter("txtReleaseYear")));
 		}
 		if (operation.equals("moviePageToRating")) {
 			String title = request.getParameter("inputMovieTitle");
 			String year = request.getParameter("inputReleaseYear");
 			if (request.getParameter("btnValue").equals("addBtn")) {
 				url = "/RatingPage.jsp";
-				ArrayList<String> allEmails = this.getAllUserEmails();
+				List<String> allEmails = facade.getAllUserEmails();
 				request.setAttribute("title", title);
 				request.setAttribute("releaseYear", year);
 				request.setAttribute("allEmails", allEmails);
 			}
 			if (request.getParameter("btnValue").equals("showBtn")) {
-				System.out.println("Hello from showBtn");
 				url = "/ShowReview.jsp";
 				Movie movie = facade.findMovieById(title, year);
 				Set<Rating> tmp = movie.getRatings();
@@ -160,14 +160,5 @@ public class MainServlet extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
-	}
-
-	public ArrayList<String> getAllUserEmails() {
-		ArrayList<String> allEmails = new ArrayList<String>();
-		ArrayList<UserProfile> allUsers = (ArrayList<UserProfile>) facade.findAllUsers();
-		for (UserProfile user : allUsers) {
-			allEmails.add(user.getEmail());
-		}
-		return allEmails;
 	}
 }

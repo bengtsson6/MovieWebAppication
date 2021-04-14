@@ -1,5 +1,6 @@
 package isproject.facade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -73,5 +74,13 @@ public class Facade implements FacadeLocal {
 	}
 	public void deleteRating(String movieName, String releaseYear, String email) {
 		ratingEAO.deleteRating(movieName, releaseYear, email);
+	}
+	public List<String> getAllUserEmails() {
+		List<String> allEmails = new ArrayList<String>();
+		List<UserProfile> allUsers = this.findAllUsers();
+		for (UserProfile user : allUsers) {
+			allEmails.add(user.getEmail());
+		}
+		return allEmails;
 	}
 }
