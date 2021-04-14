@@ -22,5 +22,6 @@
 		</p>
 		</section>
 		</section>
+		<%@ include file="Footer.html"%>
 </body>
 </html>

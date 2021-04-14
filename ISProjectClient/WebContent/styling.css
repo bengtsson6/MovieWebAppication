@@ -4,17 +4,20 @@ fieldset {
 	border-color: #000000;
 	border-style: solid;
 }
+
 .header img {
-  float: left;
-  width: 350px;
-  height: 150px;
-  background: #555;
+	float: left;
+	width: 350px;
+	height: 150px;
+	background: #555;
 }
+
 body {
 	background-color: #bdb7b7;
 	width: 1880px;
 }
-legend{
+
+legend {
 	color: #000000;
 	font-weight: bold;
 	font-size: larger;
@@ -43,16 +46,18 @@ legend{
 	padding: 0;
 	margin-left: 750px;
 }
+
 .header-right {
 	float: right;
 	background-color: #968c8c;
-	
 }
+
 .header-left {
 	float: left;
 	background-color: #968c8c;
 	width: 70%;
 }
+
 .header-right a {
 	float: left;
 	color: black;
@@ -69,54 +74,59 @@ legend{
 	width: 100%;
 }
 
-.dataTable{
-	width : 52%;
-	text-align : left;
-	border:2px solid black;
+.dataTable {
+	width: 52%;
+	text-align: left;
+	border: 2px solid black;
 	border-collapse: collapse;
 }
+
 .rowButton {
 	cursor: pointer;
 }
-.dataTable tr:nth-child(even){
-	background-color : #968c8c;
+
+.dataTable tr:nth-child(even) {
+	background-color: #968c8c;
 }
 
-.dataTable tr:hover{
-	font-weight:bold;
-	font-size:17px;
-	background-color: #d7d9d7; 
+.dataTable tr:hover {
+	font-weight: bold;
+	font-size: 17px;
+	background-color: #d7d9d7;
 }
 
-.dataTable td,th {
+.dataTable td, th {
 	border: 1px solid black;
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
+
 aside {
 	float: right;
 	border: 2px solid black;
 	width: 25%;
 	margin-top: 10px;
 	background-color: #968c8c;
-	
 }
+
 #asideTable {
 	text-align: left;
 	border-collapse: collapse;
 	font-size: 17px;
 }
+
 #asideTable th, td {
 	border: 0px;
 	font-weight: normal;
 	padding: 10px;
 }
 
-caption{
-	text-align : left;
+caption {
+	text-align: left;
 	font-weight: bold;
 	font-size: 20px;
 }
+
 #nav {
 	float: left;
 	width: 15%;
@@ -151,57 +161,66 @@ caption{
 	color: #666;
 	background-color: #d6d6d6;
 }
-.thick-font{
+
+.thick-font {
 	font-weight: bold;
 }
-.txtInputEnterInformation{
+
+.txtInputEnterInformation {
 	width: 25%;
 	padding: 3px 3px;
 	margin: 5px;
 	box-sizing: border-box;
 	border-radius: 5px;
 }
+
 .txtInputEnterInformation :focus {
 	border: 2px solid #69ff78;
 }
+
 select {
 	width: 15%;
 	padding: 5px 5px;
 }
-input[type=submit]{
+
+input[type=submit] {
 	padding: 6px 6px;
-	cursor : pointer;
-	border-radius : 4px;
-	border :1px solid black;
-	margin-right : 10px;
+	cursor: pointer;
+	border-radius: 4px;
+	border: 1px solid black;
+	margin-right: 10px;
 	box-shadow: inset 0px 1px 3px 0px #0d0d0d;
 	background: linear-gradient(to bottom, #616161 5%, #b5b5b5 100%);
-	background-color : #616161;
-	text-shadow : 0px -1px 0px #000000;
-	display:inline-block;
-	font-family : Arial;
-	color:#fafafa;
+	background-color: #616161;
+	text-shadow: 0px -1px 0px #000000;
+	display: inline-block;
+	font-family: Arial;
+	color: #fafafa;
 }
+
 input[type=submit]:hover {
 	background: linear-gradient(to bottom, #b5b5b5 5%, #616161 100%);
 }
-button{
+
+button {
 	padding: 6px 6px;
-	cursor : pointer;
-	border-radius : 4px;
-	border :1px solid black;
-	margin-right : 10px;
+	cursor: pointer;
+	border-radius: 4px;
+	border: 1px solid black;
+	margin-right: 10px;
 	box-shadow: inset 0px 1px 3px 0px #0d0d0d;
 	background: linear-gradient(to bottom, #616161 5%, #b5b5b5 100%);
-	background-color : #616161;
-	text-shadow : 0px -1px 0px #000000;
-	display:inline-block;
-	font-family : Arial;
-	color:#fafafa;
+	background-color: #616161;
+	text-shadow: 0px -1px 0px #000000;
+	display: inline-block;
+	font-family: Arial;
+	color: #fafafa;
 }
+
 button:hover {
 	background: linear-gradient(to bottom, #b5b5b5 5%, #616161 100%);
 }
+
 #searchField {
 	width: 50%;
 	border: 1px solid black;
@@ -209,21 +228,71 @@ button:hover {
 	padding: 12px;
 	border-radius: 5px;
 }
-label{
+
+label {
 	vertical-align: center;
 }
+
 .textSection {
 	border: 2px solid black;
 	background-color: #968c8c;
-	margin-left: 500px; 
+	margin-left: 500px;
 	margin-top: 10px;
 	width: 40%;
 	padding: 10px;
 }
+
 #titleHomePage {
 	margin-top: 0px;
 	font-size: 30px:
 }
+
 #txtHomePage {
 	font-size: 17px;
+}
+
+footer {
+	position: absolute;
+	background-color: #968c8c;
+	width: 1900px;
+	border: 2px solid black;
+	bottom: 0;
+	overflow: hidden;
+}
+
+#rightFooter {
+	float: right;
+	display: inline-block;
+	
+}
+
+#rightFooter h3 {
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+#rightFooter p {
+	margin: 3px;
+	padding: 3px;
+}
+
+#leftFooter {
+	float: left;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+#socialMedia .fa {
+	padding: 20px;
+	font-size: 30px;
+	text-decoration: none;
+	
+}
+
+#socialMedia {
+	width: 20%;
+	display: inline-block;
+	margin-left: 450px;
 }
