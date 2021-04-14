@@ -147,5 +147,6 @@
 			<input name = "operation" value = "moviePageToRating" type = "hidden">
 		</form>
 	</section>
+	<%@ include file="Footer.html"%>
 </body>
 </html>

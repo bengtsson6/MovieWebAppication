@@ -83,5 +83,6 @@
 			<input name="operation" value="ratingPage" type=hidden>
 		</form>
 	</section>
+	<%@ include file="Footer.html"%>
 </body>
 </html>
