@@ -20,20 +20,14 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="navigationBar.html"%>
+		<%@ include file="Weather.html" %>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="addRatingForm" onSubmit="return validateRatingForm();">
 			<fieldset id="RatingFS">
-				<legend>Enter Information:</legend>
+				<h2>Add your rating to <%=movieTitle%></h2>
 				<%
 					if (movieTitle != null && releaseYear != null) {
 				%>
-				 <label for="txtTitle">Title: </label> <input
-					type="text" name="txtTitle" id="txtTitle" value="<%=movieTitle%>"
-					class="txtInputEnterInformation" readonly> <label
-					for="txtReleaseYear">Release Year: </label> <input type="text"
-					name="txtReleaseYear" id="txtReleaseYear"
-					class="txtInputEnterInformation" value="<%=releaseYear%>" readonly>
-					<br>
 					<p>If you want to register a user <a href = "UserPage.jsp">click here</a> </p>
 				<label for="selEmail">User Email: </label> <select name="selEmail"
 					id="selEmail">
@@ -44,13 +38,6 @@
 				<%
 					} else {
 				%>
-				 <label for="txtTitle">Title</label> <input
-					type="text" name="txtTitle" id="txtTitle"
-					class="txtInputEnterInformation"> <label
-					for="txtReleaseYear">Release Year: </label> <input type="text"
-					name="txtReleaseYear" id="txtReleaseYear"
-					class="txtInputEnterInformation">
-					<br>
 					<p>If you want to register a new user <a href = "UserPage.jsp">click here</a> </p>
 					<label for="selEmail">User Email: </label> <select name="selEmail"
 					id="selEmail"></select>
@@ -91,6 +78,8 @@
 				%>
 
 			</fieldset>
+			<input name = txtTitle value = "<%=movieTitle%>" type = hidden>
+			<input name = txtReleaseYear value = "<%=releaseYear%>" type = hidden>
 			<input name="operation" value="ratingPage" type=hidden>
 		</form>
 	</section>
