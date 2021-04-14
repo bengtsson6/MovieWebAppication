@@ -69,6 +69,7 @@ legend {
 
 .mainSection {
 	margin-top: 20px;
+	margin-bottom: 50px;
 	padding: 10px, 20px;
 	float: left;
 	width: 100%;
@@ -252,7 +253,6 @@ label {
 }
 
 footer {
-	position: absolute;
 	background-color: #968c8c;
 	width: 1900px;
 	border: 2px solid black;
