@@ -83,4 +83,7 @@ public class Facade implements FacadeLocal {
 		}
 		return allEmails;
 	}
+	public double getAvgRating(String movieName, String releaseYear) {
+		return movieEAO.getAvgRating(movieName, releaseYear);
+	}
 }

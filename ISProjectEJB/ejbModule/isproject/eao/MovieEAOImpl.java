@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import isproject.ejb.Movie;
 import isproject.ejb.MovieId;
+import isproject.ejb.Rating;
 
 
 @Stateless
@@ -49,5 +50,13 @@ public class MovieEAOImpl implements MovieEAOLocal {
     	query.setParameter("name", name);
     	List<Movie> moviesByName = query.getResultList();
     	return moviesByName;
+    }
+    public double getAvgRating(String movieName, String releaseYear) {
+    	double avgRating = 0;
+    	Movie movie = this.findByMovieId(movieName, releaseYear);
+    	for(Rating rating : movie.getRatings()) {
+    		avgRating += (double) rating.getRatingGrade();
+    	}
+    	return avgRating;
     }
 } 

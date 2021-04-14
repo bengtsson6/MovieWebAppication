@@ -17,13 +17,14 @@
 	ArrayList<Rating> allRatings = (ArrayList<Rating>)request.getAttribute("allRatings");
 	String title = (String)request.getAttribute("title");
 	String year = (String)request.getAttribute("year");
+	String avgRating = (String) request.getAttribute("avgRating");
 	%>
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="navigationBar.html"%>
 		<%@ include file="Weather.html" %>
 		<table id = "dataTable" class="dataTable">
-			<caption>All Ratings for <%=title%> <%=year%></caption>
+			<caption>All Ratings for <%=title%>, Average Rating: <%=avgRating%></caption>
 			<tr>
 				<th>User email</th>
 				<th>Rating</th>

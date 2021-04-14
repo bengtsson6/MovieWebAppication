@@ -27,4 +27,5 @@ public interface FacadeLocal {
     public Rating updateRating(Rating rating);
     public void deleteRating(String movieName, String releaseYear, String email);
     public List<String> getAllUserEmails();
+    public double getAvgRating(String movieName, String releaseYear);
 }

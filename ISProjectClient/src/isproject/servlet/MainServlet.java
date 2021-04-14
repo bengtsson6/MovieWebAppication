@@ -149,11 +149,18 @@ public class MainServlet extends HttpServlet {
 			if (request.getParameter("btnValue").equals("showBtn")) {
 				url = "/ShowReview.jsp";
 				Movie movie = facade.findMovieById(title, year);
+				double avgRating = facade.getAvgRating(title, year);
+				String averageRating = Double.toString(avgRating);
 				Set<Rating> tmp = movie.getRatings();
 				List<Rating> ratings = new ArrayList<Rating>(tmp);
 				request.setAttribute("allRatings", ratings);
 				request.setAttribute("title", title);
 				request.setAttribute("year", year);
+				if (avgRating != 0) {
+					request.setAttribute("avgRating", averageRating);
+				} else {
+					request.setAttribute("avgRating", "This movie hasn't any ratings");
+				}
 			}
 		}
 		if (url != null) {
