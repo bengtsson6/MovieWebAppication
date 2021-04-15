@@ -1,3 +1,6 @@
+html {
+	height: 100%;
+}
 fieldset {
 	background-color: #968c8c;
 	width: 50%;
@@ -15,6 +18,9 @@ fieldset {
 body {
 	background-color: #bdb7b7;
 	width: 1880px;
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 50px;
 }
 
 legend {
@@ -258,6 +264,9 @@ footer {
 	border: 2px solid black;
 	bottom: 0;
 	overflow: hidden;
+	clear: both;
+	position: absolute; 
+	height: 120px;
 }
 
 #rightFooter {
