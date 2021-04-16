@@ -73,8 +73,7 @@
 			if (allUsers == null) {
 		%>
 		<form action="/ISProjectClient/MainServlet" method="post"
-			id="loadAllUsersForm" name="loadAllUsersForm"
-			onload="sendUserTableForm()">
+			id="loadAllUsersForm" name="loadAllUsersForm">
 			<input name="operation" value="userPageAllUsers" type=hidden>
 		</form>
 		<%

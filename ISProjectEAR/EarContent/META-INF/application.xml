@@ -10,4 +10,10 @@
       <context-root>ISProjectClient</context-root>
     </web>
   </module>
+  <module>
+    <web>
+      <web-uri>ISProjectRestClient.war</web-uri>
+      <context-root>ISProjectRestClient</context-root>
+    </web>
+  </module>
 </application>
