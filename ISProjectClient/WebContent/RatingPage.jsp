@@ -82,7 +82,7 @@
 			<input name = txtReleaseYear value = "<%=releaseYear%>" type = hidden>
 			<input name="operation" value="ratingPage" type=hidden>
 		</form>
+			<%@ include file="Footer.html"%>
 	</section>
-	<%@ include file="Footer.html"%>
 </body>
 </html>

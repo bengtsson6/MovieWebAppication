@@ -105,7 +105,7 @@
 		<%
 			}
 		%>
+			<%@ include file="Footer.html"%>
 	</section>
-	<%@ include file="Footer.html"%>
 </body>
 </html>

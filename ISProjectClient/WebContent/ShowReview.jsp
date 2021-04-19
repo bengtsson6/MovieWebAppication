@@ -46,7 +46,7 @@
 			%>
 		</table>
 		<button onclick = "window.location.href = 'MoviePage.jsp'" type = "button">Back to Movies</button>
+			<%@ include file="Footer.html"%>
 		</section>
-		<%@ include file="Footer.html"%>
 </body>
 </html>

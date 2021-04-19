@@ -146,7 +146,7 @@
 			<input name = "btnValue" id = "btnValue" value = "" type = "hidden">
 			<input name = "operation" value = "moviePageToRating" type = "hidden">
 		</form>
+			<%@ include file="Footer.html"%>
 	</section>
-	<%@ include file="Footer.html"%>
 </body>
 </html>

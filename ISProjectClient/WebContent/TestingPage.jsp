@@ -20,7 +20,7 @@
 				</select> <input type="submit" value="Run">
 			</fieldset>
 		</form>
+			<%@ include file="Footer.html"%>
 	</section>
-	<%@ include file="Footer.html"%>
 </body>
 </html>
