@@ -5,7 +5,7 @@
 <%@ page import="java.util.ArrayList"%>
 <html>
 <head>
-<script src="validationScripts.js">	
+<script src="ValidationScripts.js">	
 </script>
 <script src="ISProjectScripts.js"></script>
 <link rel="stylesheet" type="text/css" href="styling.css">
@@ -21,7 +21,7 @@
 	%>
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
-		<%@ include file="navigationBar.html"%>
+		<%@ include file="NavigationBar.html"%>
 		<%@ include file="Weather.html" %>
 		<table id = "dataTable" class="dataTable">
 			<caption>All Ratings for <%=title%>, Average Rating: <%=avgRating%></caption>

@@ -6,7 +6,7 @@
 <%@ page import="java.util.List"%>
 <html>
 <head>
-<script src="validationScripts.js">
+<script src="ValidationScripts.js">
 	
 </script>
 <script src="ISProjectScripts.js"></script>
@@ -22,7 +22,7 @@
 	%>
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
-		<%@ include file="navigationBar.html"%>
+		<%@ include file="NavigationBar.html"%>
 		<%@ include file="Weather.html"%>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="moviePage" onSubmit="return validateMovieForm();">

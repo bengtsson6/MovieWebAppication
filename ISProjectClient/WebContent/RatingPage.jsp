@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<script src="validationScripts.js"></script>
+<script src="ValidationScripts.js"></script>
 <script src="ISProjectScripts.js"></script>
 <link rel="stylesheet" type="text/css" href="styling.css">
 <title>IsProjectVT21.RatingPage</title>
@@ -20,7 +20,7 @@
 	%>
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
-		<%@ include file="navigationBar.html"%>
+		<%@ include file="NavigationBar.html"%>
 		<%@ include file="Weather.html"%>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="addRatingForm" onSubmit="return validateRatingForm();">

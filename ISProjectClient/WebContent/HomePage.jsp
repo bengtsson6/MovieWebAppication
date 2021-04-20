@@ -10,7 +10,7 @@
 <body>
 <%@ include file="Header.html"%>
 	<section class="mainSection">
-		<%@ include file="navigationBar.html"%>
+		<%@ include file="NavigationBar.html"%>
 		<%@ include file="Weather.html" %>
 		<section class="textSection">
 		<h1 id="titleHomePage">Welcome!</h1>

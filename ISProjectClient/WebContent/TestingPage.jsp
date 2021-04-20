@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
-		<%@ include file="navigationBar.html"%>
+		<%@ include file="NavigationBar.html"%>
 		<%@ include file="Weather.html"%>
 		<form action="TestServlet" method="get" name="testMethodsForm">
 			<fieldset>
