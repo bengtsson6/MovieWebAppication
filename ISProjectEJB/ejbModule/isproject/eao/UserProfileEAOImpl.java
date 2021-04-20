@@ -1,5 +1,6 @@
 package isproject.eao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -41,11 +42,12 @@ public class UserProfileEAOImpl implements UserProfileEAOLocal {
     	List<UserProfile> allUsers = query.getResultList();
     	return allUsers;
     }
-    public List<UserProfile> findUserByName(String name){
-    	TypedQuery<UserProfile> query =
-    			em.createNamedQuery("UserProfile.findUserByName", UserProfile.class);
-    	query.setParameter("name", name);
-    	List<UserProfile> users = query.getResultList();
-    	return users;
-    }
+    public List<String> findAllUserEmail(){
+		List<String> allEmails = new ArrayList<String>();
+		List<UserProfile> allUsers = this.findAll();
+		for (UserProfile user : allUsers) {
+			allEmails.add(user.getEmail());
+		}
+		return allEmails;
+	}
 }

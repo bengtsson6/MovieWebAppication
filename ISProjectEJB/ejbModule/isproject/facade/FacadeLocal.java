@@ -15,17 +15,15 @@ public interface FacadeLocal {
 	public UserProfile updateUser(UserProfile user);
 	public void deleteUser(String email);
 	public List<UserProfile> findAllUsers();
-	public List<UserProfile> findUserByName(String name);
+	public List<String> getAllUserEmails();
     public Movie findMovieById(String movieName, String releaseYear);
     public Movie createMovie(Movie movie);
     public Movie updateMovie(Movie movie);
     public void deleteMovie(String movieName, String releaseYear);
     public List<Movie> findAllMovie();
-    public List<Movie> findMovieByName(String name);
     public Rating findRatingById(String movieName, String releaseYear, String email);
     public Rating createRating(Rating rating);
     public Rating updateRating(Rating rating);
     public void deleteRating(String movieName, String releaseYear, String email);
-    public List<String> getAllUserEmails();
-    public double getAvgRating(String movieName, String releaseYear);
+    public String getAvgRating(String movieName, String releaseYear);
 }

@@ -15,7 +15,6 @@ import javax.persistence.Table;
 @Entity
 @NamedQueries({
 	@NamedQuery(name ="Movie.findAll", query="SELECT m FROM Movie m"),
-	@NamedQuery(name="Movie.findByName", query="SELECT m FROM Movie m WHERE movieName LIKE: name"),
 })
 @Table(name ="Movie")
 public class Movie implements Serializable {

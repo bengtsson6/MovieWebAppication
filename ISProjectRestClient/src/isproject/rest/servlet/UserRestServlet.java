@@ -38,18 +38,13 @@ public class UserRestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pathInfo = request.getPathInfo();
-		System.out.println("HEJ");
-		System.out.println(pathInfo);
 		if (pathInfo == null || pathInfo.equals("/")) {
-			System.out.println("Hello1");
-			System.out.println(pathInfo);
 			List<UserProfile> allUsers = facade.findAllUsers();
 			sendAsJson(response, allUsers);
 			return;
 		}
 		String[] splits = pathInfo.split("/");
 		if (splits.length != 2) {
-			System.out.println("Hej2");
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		}
@@ -86,7 +81,6 @@ public class UserRestServlet extends HttpServlet {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		}
-		String id = splits[1];
 		BufferedReader reader = request.getReader();
 		UserProfile user = parseJsonUser(reader);
 		try {

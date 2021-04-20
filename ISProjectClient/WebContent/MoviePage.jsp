@@ -6,7 +6,8 @@
 <%@ page import="java.util.List"%>
 <html>
 <head>
-<script src="validationScripts.js">	
+<script src="validationScripts.js">
+	
 </script>
 <script src="ISProjectScripts.js"></script>
 <link rel="stylesheet" type="text/css" href="styling.css">
@@ -17,20 +18,21 @@
 	<%
 		List<Movie> allMovies = (List<Movie>) request.getAttribute("allMovies");
 		String success = (String) request.getAttribute("Success");
+		String failure = (String) request.getAttribute("Failure");
 	%>
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="navigationBar.html"%>
-		<%@ include file="Weather.html" %>
+		<%@ include file="Weather.html"%>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="moviePage" onSubmit="return validateMovieForm();">
 			<fieldset id="MovieFS">
 				<legend>Enter Movie Information:</legend>
 				<p>Fields marked with "*" is mandatory</p>
 				<p>
-					<label for="txtName">Title:*</label> <input type="text" id="txtName"
-						name="txtName" class="txtInputEnterInformation"> <label
-						for="txtDirector">Director</label> <input type="text"
+					<label for="txtName">Title:*</label> <input type="text"
+						id="txtName" name="txtName" class="txtInputEnterInformation">
+					<label for="txtDirector">Director</label> <input type="text"
 						name="txtDirector" id="txtDirector"
 						class="txtInputEnterInformation">
 				</p>
@@ -84,6 +86,12 @@
 					<b><%=success%></b>
 				</p>
 				<%
+					} else if (failure != null) {
+				%>
+				<p id=responseLabel class="thick-font">
+					<b><%=failure%></b>
+				</p>
+				<%
 					} else {
 				%>
 				<p id=responseLabel class="thick-font"></p>
@@ -106,7 +114,7 @@
 		<%
 			} else {
 		%>
-		<table id = "dataTable" class="dataTable">
+		<table id="dataTable" class="dataTable">
 			<caption>All Movies</caption>
 			<tr>
 				<th>Title</th>
@@ -130,8 +138,12 @@
 				<td><%=director%></td>
 				<td><%=genre%></td>
 				<td><%=streamingService%></td>
-				<td class = "buttonCell"> <button onclick = "rowButtonClicked(this)" class = "rowButton" name = "addRating">Add rating</button>
-				<button onclick = "rowButtonClicked(this)" class = "rowButton" name = "showRating">Show reviews</button> </td>
+				<td class="buttonCell">
+					<button onclick="rowButtonClicked(this)" class="rowButton"
+						name="addRating">Add rating</button>
+					<button onclick="rowButtonClicked(this)" class="rowButton"
+						name="showRating">Show reviews</button>
+				</td>
 			</tr>
 			<%
 				}
@@ -140,13 +152,15 @@
 		<%
 			}
 		%>
-		<form action="/ISProjectClient/MainServlet" method="post" id = "sendToRatingForm" name = "sendToRatingForm">
-			<input name = "inputMovieTitle" id = "inputMovieTitle" value = "" type = "hidden">
-			<input name = "inputReleaseYear" id = "inputReleaseYear" value = "" type = "hidden">
-			<input name = "btnValue" id = "btnValue" value = "" type = "hidden">
-			<input name = "operation" value = "moviePageToRating" type = "hidden">
+		<form action="/ISProjectClient/MainServlet" method="post"
+			id="sendToRatingForm" name="sendToRatingForm">
+			<input name="inputMovieTitle" id="inputMovieTitle" value=""
+				type="hidden"> <input name="inputReleaseYear"
+				id="inputReleaseYear" value="" type="hidden"> <input
+				name="btnValue" id="btnValue" value="" type="hidden"> <input
+				name="operation" value="moviePageToRating" type="hidden">
 		</form>
-			<%@ include file="Footer.html"%>
+		<%@ include file="Footer.html"%>
 	</section>
 </body>
 </html>

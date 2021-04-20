@@ -14,6 +14,7 @@
 <body onload="sendTablesForm();">
 	<%
 		String success = (String) request.getAttribute("Success");
+		String failure = (String) request.getAttribute("Failure");
 		List<UserProfile> allUsers = (List<UserProfile>) request.getAttribute("allUsers");
 	%>
 	<%@ include file="Header.html"%>
@@ -56,9 +57,15 @@
 					<b><%=success%></b>
 				</p>
 				<%
+					} else if (failure != null) {
+				%>
+				<p id=responseLabel class="thick-font">
+					<b><%=failure%></b>
+				</p>
+				<%
 					} else {
 				%>
-				<p id=responseLabel class="thick-font"></p>
+				<p id=responseLabel class="thick-font">
 				<%
 					}
 				%>

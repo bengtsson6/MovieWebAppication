@@ -11,7 +11,7 @@ $(document).ready(function(){
 	}
 	
 	function ajaxReturn_Error(result, status, xhr) {
-		console.log("Ajax-api-stack: "+status);
+		$("#errorResponse").html("Error fetch weater service");
 	} 
 });// End ready function
 
@@ -42,7 +42,6 @@ function ParseJsonFile(result) {
 		$("#degree").text("Degrees: "+result.main.temp+" \u2103");
 	}
 	function ajaxWeatherReturn_Error(result, status, xhr) {
-		alert("Error i OpenWeaterMap Ajax");
-		console.log("Ajax-find movie: "+status);
+		$("#errorResponse").html("Error fetch weater service");
 	}
  }

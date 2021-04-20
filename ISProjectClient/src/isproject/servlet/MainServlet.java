@@ -49,15 +49,19 @@ public class MainServlet extends HttpServlet {
 			url = "/UserPage.jsp";
 			if (request.getParameter("btnSubmit").equals("Add User")) {
 				UserProfile user = new UserProfile();
-				if (!request.getParameter("txtEmail").equals("")) {
+				if (facade.findUserByEmail(request.getParameter("txtEmail")) == null) {
 					user.setEmail(request.getParameter("txtEmail"));
+					user.setUserName(request.getParameter("txtUserName"));
+					user.setBirthYear(request.getParameter("selBirthYear"));
+					facade.createUser(user);
+					List<UserProfile> allUsers = facade.findAllUsers();
+					request.setAttribute("Success", "New User was succesfully added");
+					request.setAttribute("allUsers", allUsers);
+				} else {
+					List<UserProfile> allUsers = facade.findAllUsers();
+					request.setAttribute("Failure", "User with " + request.getParameter("txtEmail") + " already exist");
+					request.setAttribute("allUsers", allUsers);
 				}
-				user.setUserName(request.getParameter("txtUserName"));
-				user.setBirthYear(request.getParameter("selBirthYear"));
-				facade.createUser(user);
-				List<UserProfile> allUsers = facade.findAllUsers();
-				request.setAttribute("Success", "New User was succesfully added");
-				request.setAttribute("allUsers", allUsers);
 			} else if (request.getParameter("btnSubmit").equals("Update User")) {
 				UserProfile user = new UserProfile();
 				user.setEmail(request.getParameter("txtEmail"));
@@ -83,16 +87,25 @@ public class MainServlet extends HttpServlet {
 			if (request.getParameter("btnSubmit").equals("Add Movie")) {
 				Movie movie = new Movie();
 				MovieId id = new MovieId();
-				id.setMovieName(request.getParameter("txtName"));
-				id.setReleaseYear(request.getParameter("selReleaseYear"));
-				movie.setId(id);
-				movie.setDirector(request.getParameter("txtDirector"));
-				movie.setGenre(request.getParameter("selGenre"));
-				movie.setStreamingService(request.getParameter("selStreamingService"));
-				facade.createMovie(movie);
-				request.setAttribute("Success", "New movie was succesfully added");
-				List<Movie> allMovies = facade.findAllMovie();
-				request.setAttribute("allMovies", allMovies);
+				String movieName = request.getParameter("txtName");
+				String releaseYear = request.getParameter("selReleaseYear");
+				if (facade.findMovieById(movieName, releaseYear) == null) {
+					id.setMovieName(movieName);
+					id.setReleaseYear(releaseYear);
+					movie.setId(id);
+					movie.setDirector(request.getParameter("txtDirector"));
+					movie.setGenre(request.getParameter("selGenre"));
+					movie.setStreamingService(request.getParameter("selStreamingService"));
+					facade.createMovie(movie);
+					request.setAttribute("Success", "New movie was succesfully added");
+					List<Movie> allMovies = facade.findAllMovie();
+					request.setAttribute("allMovies", allMovies);
+				} else {
+					request.setAttribute("Failure",
+							"Movie with title " + movieName + " and " + releaseYear + " already exist");
+					List<Movie> allMovies = facade.findAllMovie();
+					request.setAttribute("allMovies", allMovies);
+				}
 			} else if (request.getParameter("btnSubmit").equals("Update Movie")) {
 				Movie movie = new Movie();
 				MovieId id = new MovieId();
@@ -122,19 +135,30 @@ public class MainServlet extends HttpServlet {
 			url = "/RatingPage.jsp";
 			Rating rating = new Rating();
 			RatingId id = new RatingId();
-			id.setEmail(request.getParameter("selEmail"));
-			id.setMovieName(request.getParameter("txtTitle"));
-			id.setReleaseYear(request.getParameter("txtReleaseYear"));
-			rating.setId(id);
-			int grade = Integer.parseInt(request.getParameter("selRating"));
-			rating.setRatingGrade(grade);
-			rating.setReview(request.getParameter("textAreaReview"));
-			facade.createRating(rating);
-			List<String> allEmails = facade.getAllUserEmails();
-			request.setAttribute("Success", "Rating was succesfully added");
-			request.setAttribute("allEmails", allEmails);
-			request.setAttribute("title", (request.getParameter("txtTitle")));
-			request.setAttribute("releaseYear", (request.getParameter("txtReleaseYear")));
+			String email = request.getParameter("selEmail");
+			String movieName = request.getParameter("txtTitle");
+			String releaseYear = request.getParameter("txtReleaseYear");
+			if (facade.findRatingById(movieName, releaseYear, email) == null) {
+				id.setEmail(email);
+				id.setMovieName(movieName);
+				id.setReleaseYear(releaseYear);
+				rating.setId(id);
+				int grade = Integer.parseInt(request.getParameter("selRating"));
+				rating.setRatingGrade(grade);
+				rating.setReview(request.getParameter("textAreaReview"));
+				facade.createRating(rating);
+				List<String> allEmails = facade.getAllUserEmails();
+				request.setAttribute("Success", "Rating was succesfully added");
+				request.setAttribute("allEmails", allEmails);
+				request.setAttribute("title", (request.getParameter("txtTitle")));
+				request.setAttribute("releaseYear", (request.getParameter("txtReleaseYear")));
+			} else {
+				List<String> allEmails = facade.getAllUserEmails();
+				request.setAttribute("Failure", "The movie is already rated by selected user");
+				request.setAttribute("allEmails", allEmails);
+				request.setAttribute("title", (request.getParameter("txtTitle")));
+				request.setAttribute("releaseYear", (request.getParameter("txtReleaseYear")));
+			}
 		}
 		if (operation.equals("moviePageToRating")) {
 			String title = request.getParameter("inputMovieTitle");
@@ -149,14 +173,13 @@ public class MainServlet extends HttpServlet {
 			if (request.getParameter("btnValue").equals("showBtn")) {
 				url = "/ShowReview.jsp";
 				Movie movie = facade.findMovieById(title, year);
-				double avgRating = facade.getAvgRating(title, year);
-				String averageRating = Double.toString(avgRating);
+				String averageRating = facade.getAvgRating(title, year);
 				Set<Rating> tmp = movie.getRatings();
 				List<Rating> ratings = new ArrayList<Rating>(tmp);
 				request.setAttribute("allRatings", ratings);
 				request.setAttribute("title", title);
 				request.setAttribute("year", year);
-				if (avgRating != 0) {
+				if (averageRating != null) {
 					request.setAttribute("avgRating", averageRating);
 				} else {
 					request.setAttribute("avgRating", "This movie hasn't any ratings");

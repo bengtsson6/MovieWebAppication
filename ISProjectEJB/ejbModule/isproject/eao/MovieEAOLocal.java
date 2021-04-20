@@ -14,6 +14,5 @@ public interface MovieEAOLocal {
 	public Movie updateMovie(Movie movie);
 	public void deleteMovie(String movieName, String releaseYear);
 	public List<Movie> findAll();
-	public List<Movie> findByName(String name);
-	public double getAvgRating(String movieName, String releaseYear);
+	public String getAvgRating(String movieName, String releaseYear);
 }

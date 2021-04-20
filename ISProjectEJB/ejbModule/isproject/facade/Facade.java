@@ -42,9 +42,6 @@ public class Facade implements FacadeLocal {
     public List<UserProfile> findAllUsers(){
     	return userProfileEAO.findAll();
     }
-    public List<UserProfile> findUserByName(String name) {
-    	return userProfileEAO.findUserByName(name);
-    }
     public Movie findMovieById(String movieName, String releaseYear) {
     	return movieEAO.findByMovieId(movieName, releaseYear);
     }
@@ -60,9 +57,6 @@ public class Facade implements FacadeLocal {
     public List<Movie> findAllMovie(){
     	return movieEAO.findAll();
     }
-    public List<Movie> findMovieByName(String name){
-    	return movieEAO.findByName(name);
-    }
 	public Rating findRatingById(String movieName, String releaseYear, String email) {
 		return ratingEAO.findById(movieName, releaseYear, email);
 	}
@@ -76,14 +70,9 @@ public class Facade implements FacadeLocal {
 		ratingEAO.deleteRating(movieName, releaseYear, email);
 	}
 	public List<String> getAllUserEmails() {
-		List<String> allEmails = new ArrayList<String>();
-		List<UserProfile> allUsers = this.findAllUsers();
-		for (UserProfile user : allUsers) {
-			allEmails.add(user.getEmail());
-		}
-		return allEmails;
+		return userProfileEAO.findAllUserEmail();
 	}
-	public double getAvgRating(String movieName, String releaseYear) {
+	public String getAvgRating(String movieName, String releaseYear) {
 		return movieEAO.getAvgRating(movieName, releaseYear);
 	}
 }
