@@ -88,6 +88,14 @@ legend {
 	border-collapse: collapse;
 	margin-bottom: 100px;
 }
+#dataTableReview {
+	width: 52%;
+	text-align: left;
+	border: 2px solid black;
+	border-collapse: collapse;
+	margin-bottom: 100px;
+	table-layout: fixed;
+}
 
 .rowButton {
 	cursor: pointer;
@@ -107,6 +115,7 @@ legend {
 	border: 1px solid black;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	word-wrap : break-word;
 }
 
 aside {

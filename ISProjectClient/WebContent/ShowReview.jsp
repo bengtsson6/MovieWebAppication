@@ -23,7 +23,7 @@
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
 		<%@ include file="Weather.html" %>
-		<table id = "dataTable" class="dataTable">
+		<table id = "dataTableReview" class = "dataTable">
 			<caption>All Ratings for <%=title%>, Average Rating: <%=avgRating%></caption>
 			<tr>
 				<th>User email</th>
