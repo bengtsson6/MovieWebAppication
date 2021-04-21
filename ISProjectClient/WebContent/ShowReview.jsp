@@ -26,7 +26,7 @@
 		<br> <input type="text" id="searchField"
 			onkeyup="filterTableFunction()" placeholder="Search by User Email">
 		<br>
-		<table id = "dataTable" class="dataTable">
+    	<table id = "dataTableReview" class = "dataTable">
 			<caption>All Ratings for <%=title%>, Average Rating: <%=avgRating%></caption>
 			<tr>
 				<th>User email</th>
