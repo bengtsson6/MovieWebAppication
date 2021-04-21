@@ -23,7 +23,10 @@
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
 		<%@ include file="Weather.html" %>
-		<table id = "dataTableReview" class = "dataTable">
+		<br> <input type="text" id="searchField"
+			onkeyup="filterTableFunction()" placeholder="Search by User Email">
+		<br>
+    	<table id = "dataTableReview" class = "dataTable">
 			<caption>All Ratings for <%=title%>, Average Rating: <%=avgRating%></caption>
 			<tr>
 				<th>User email</th>
@@ -46,7 +49,7 @@
 			%>
 		</table>
 		<button onclick = "window.location.href = 'MoviePage.jsp'" type = "button">Back to Movies</button>
-			<%@ include file="Footer.html"%>
 		</section>
+		<%@ include file="Footer.html"%>
 </body>
 </html>
