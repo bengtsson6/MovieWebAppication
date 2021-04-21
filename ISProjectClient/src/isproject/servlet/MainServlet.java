@@ -63,17 +63,33 @@ public class MainServlet extends HttpServlet {
 					request.setAttribute("allUsers", allUsers);
 				}
 			} else if (request.getParameter("btnSubmit").equals("Update User")) {
-				UserProfile user = new UserProfile();
-				user.setEmail(request.getParameter("txtEmail"));
-				user.setUserName(request.getParameter("txtUserName"));
-				user.setBirthYear(request.getParameter("selBirthYear"));
-				facade.updateUser(user);
-				List<UserProfile> allUsers = facade.findAllUsers();
-				request.setAttribute("allUsers", allUsers);
-				request.setAttribute("Success", "New User was succesfully updated");
+
+				if (facade.findUserByEmail(request.getParameter("txtEmail")) != null) {
+					UserProfile user = new UserProfile();
+					user.setEmail(request.getParameter("txtEmail"));
+					user.setUserName(request.getParameter("txtUserName"));
+					user.setBirthYear(request.getParameter("selBirthYear"));
+					facade.updateUser(user);
+					List<UserProfile> allUsers = facade.findAllUsers();
+					request.setAttribute("allUsers", allUsers);
+					request.setAttribute("Success", "New User was succesfully updated");
+				} else {
+					List<UserProfile> allUsers = facade.findAllUsers();
+					request.setAttribute("allUsers", allUsers);
+					request.setAttribute("Failure", "Couldn't find user to update, try add user instead");
+				}
 			} else if (request.getParameter("btnSubmit").equals("Delete User")) { // Delete, används ej i GUI i nuläget.
 				String email = request.getParameter("txtEmail");
-				facade.deleteUser(email);
+				if (facade.findUserByEmail(email) != null) {
+					facade.deleteUser(email);
+					List<UserProfile> allUsers = facade.findAllUsers();
+					request.setAttribute("allUsers", allUsers);
+					request.setAttribute("Success", "User was succesfully deleted");
+				} else {
+					List<UserProfile> allUsers = facade.findAllUsers();
+					request.setAttribute("allUsers", allUsers);
+					request.setAttribute("Failure", "Coudn't find user to delete");
+				}
 			}
 		}
 		if (operation.equals("userPageAllUsers")) {
@@ -107,23 +123,39 @@ public class MainServlet extends HttpServlet {
 					request.setAttribute("allMovies", allMovies);
 				}
 			} else if (request.getParameter("btnSubmit").equals("Update Movie")) {
-				Movie movie = new Movie();
-				MovieId id = new MovieId();
-				id.setMovieName(request.getParameter("txtName"));
-				id.setReleaseYear(request.getParameter("selReleaseYear"));
-				movie.setId(id);
-				movie.setDirector(request.getParameter("txtDirector"));
-				movie.setGenre(request.getParameter("selGenre"));
-				movie.setStreamingService(request.getParameter("selStreamingService"));
-				facade.updateMovie(movie);
-				List<Movie> allMovies = facade.findAllMovie();
-				request.setAttribute("allMovies", allMovies);
-				request.setAttribute("Success", "Movie was succesfully updated");
-			} else if (request.getParameter("btnSubmit").equals("Delete Movie")) { // Delete, används ej i GUI i
-																					// nuläget.
 				String movieName = request.getParameter("txtName");
 				String releaseYear = request.getParameter("selReleaseYear");
-				facade.deleteMovie(movieName, releaseYear);
+				if (facade.findMovieById(movieName, releaseYear) != null) {
+					Movie movie = new Movie();
+					MovieId id = new MovieId();
+					id.setMovieName(request.getParameter("txtName"));
+					id.setReleaseYear(request.getParameter("selReleaseYear"));
+					movie.setId(id);
+					movie.setDirector(request.getParameter("txtDirector"));
+					movie.setGenre(request.getParameter("selGenre"));
+					movie.setStreamingService(request.getParameter("selStreamingService"));
+					facade.updateMovie(movie);
+					List<Movie> allMovies = facade.findAllMovie();
+					request.setAttribute("allMovies", allMovies);
+					request.setAttribute("Success", "Movie was succesfully updated");
+				} else {
+					List<Movie> allMovies = facade.findAllMovie();
+					request.setAttribute("allMovies", allMovies);
+					request.setAttribute("Failure", "Coudn't find movie to update, try add the movie");
+				}
+			} else if (request.getParameter("btnSubmit").equals("Delete Movie")) {
+				String movieName = request.getParameter("txtName");
+				String releaseYear = request.getParameter("selReleaseYear");
+				if (facade.findMovieById(movieName, releaseYear) != null) {
+					facade.deleteMovie(movieName, releaseYear);
+					List<Movie> allMovies = facade.findAllMovie();
+					request.setAttribute("allMovies", allMovies);
+					request.setAttribute("Success", "Movie was succesfully deleted");
+				} else {
+					List<Movie> allMovies = facade.findAllMovie();
+					request.setAttribute("allMovies", allMovies);
+					request.setAttribute("Failure", "Coudn't find movie to delete");
+				}
 			}
 		}
 		if (operation.equals("moviePageAllMovies")) {

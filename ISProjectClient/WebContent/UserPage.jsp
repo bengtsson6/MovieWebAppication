@@ -29,7 +29,7 @@
 				<p>
 					<label for="txtEmail">User Email: *</label> <input type="text"
 						name="txtEmail" id="txtEmail" class="txtInputEnterInformation">
-					<label for="txtUserName">Full Name: *</label> <input type="text"
+					<label for="txtUserName">Full Name: </label> <input type="text"
 						name="txtUserName" id="txtUserName"
 						class="txtInputEnterInformation">
 				</p>
@@ -47,8 +47,11 @@
 				</p>
 				<p>
 					<input type="submit" name="btnSubmit" id="btnAddUser"
-						value="Add User"><input type="submit" name="btnSubmit"
+						value="Add User">
+						<input type="submit" name="btnSubmit"
 						id="btnUpdateUser" value="Update User">
+						<input type="submit" name="btnSubmit"
+						id="btnDeleteUser" value="Delete User">
 				</p>
 				<%
 					if (success != null) {

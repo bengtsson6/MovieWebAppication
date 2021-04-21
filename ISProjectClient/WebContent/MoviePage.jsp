@@ -78,7 +78,8 @@
 				</p>
 				<input type="submit" name="btnSubmit" id="btnAddMoive"
 					value="Add Movie"> <input type="submit" name="btnSubmit"
-					id="btnUpdateMovie" value="Update Movie">
+					id="btnUpdateMovie" value="Update Movie"><input type="submit" name="btnSubmit"
+						id="btnDeleteMovie" value="Delete Movie">
 				<%
 					if (success != null) {
 				%>
