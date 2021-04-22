@@ -117,7 +117,7 @@
 		%>
 		<table id="dataTable" class="dataTable">
 			<caption>All Movies</caption>
-			<tr>
+			<tr id="tableHeader">
 				<th>Title</th>
 				<th>Release Year</th>
 				<th>Director</th>
