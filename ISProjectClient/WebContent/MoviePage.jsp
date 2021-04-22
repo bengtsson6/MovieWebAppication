@@ -32,7 +32,7 @@
 				<p>
 					<label for="txtName">Title:*</label> <input type="text"
 						id="txtName" name="txtName" class="txtInputEnterInformation">
-					<label for="txtDirector">Director</label> <input type="text"
+					<label for="txtDirector">Director:</label> <input type="text"
 						name="txtDirector" id="txtDirector"
 						class="txtInputEnterInformation">
 				</p>
@@ -57,6 +57,7 @@
 						<option>C More</option>
 						<option>Disney +</option>
 						<option>Google Play</option>
+						<option>HBO</option>
 						<option>Hulu</option>
 						<option>Netflix</option>
 						<option>Paramount+</option>
