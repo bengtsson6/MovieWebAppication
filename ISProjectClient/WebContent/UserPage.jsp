@@ -91,7 +91,7 @@
 		%>
 		<table id="dataTable" class="dataTable">
 			<caption>All Users</caption>
-			<tr>
+			<tr id="tableHeader">
 				<th>Email</th>
 				<th>Name</th>
 				<th>Birth Year</th>

@@ -2,7 +2,7 @@ html {
 	height: 100%;
 }
 fieldset {
-	background-color: #968c8c;
+	background: linear-gradient(to right, #0033cc 0%, #3399ff 100%);
 	width: 50%;
 	border-color: #000000;
 	border-style: solid;
@@ -16,7 +16,7 @@ fieldset {
 }
 
 body {
-	background-color: #bdb7b7;
+	background: linear-gradient(to right, #99ccff 0%, #ffffff 100%);
 	width: 1880px;
 	position: relative;
 	min-height: 100%;
@@ -42,7 +42,7 @@ legend {
 .header {
 	absolute: top;
 	padding-left: 10px;
-	background-color: #968c8c;
+	background: linear-gradient(to right, #0033cc 0%, #3399ff 100%);
 	overflow: hidden;
 	padding-bottom: 10px;
 	width: 100%;
@@ -58,12 +58,10 @@ legend {
 
 .header-right {
 	float: right;
-	background-color: #968c8c;
 }
 
 .header-left {
 	float: left;
-	background-color: #968c8c;
 	width: 70%;
 }
 
@@ -82,6 +80,7 @@ legend {
 	padding: 10px, 20px;
 	float: left;
 	width: 100%;
+	
 }
 
 .dataTable {
@@ -105,7 +104,10 @@ legend {
 }
 
 .dataTable tr:nth-child(even) {
-	background-color: #968c8c;
+	background-color: transparent; 
+}
+.dataTable tr:nth-child(odd) {
+	background-color : #ffffff;
 }
 
 .dataTable tr:hover {
@@ -113,11 +115,20 @@ legend {
 	font-size: 17px;
 	background-color: #d7d9d7;
 }
+#tableHeader {
+	background: linear-gradient(to right, #0033cc 0%, #3399ff 100%);
+		
+}
+#tableHeader th {
+	padding: 10px 0px 10px 0px;
+	font-size: 20px;
+}
 
 .dataTable td, th {
 	border: 1px solid black;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	font-size: 12px;
 	word-wrap : break-word;
 }
 
@@ -126,7 +137,7 @@ aside {
 	border: 2px solid black;
 	width: 25%;
 	margin-top: 10px;
-	background-color: #968c8c;
+	background: linear-gradient(to right, #0033cc 0%, #3399ff 100%);
 }
 
 #asideTable {
@@ -150,7 +161,7 @@ caption {
 #nav {
 	float: left;
 	width: 15%;
-	background-color: #968c8c;
+	background: linear-gradient(to right, #0033cc 0%, #3399ff 100%);
 	padding: 10px 10px 250px 0px;
 	border-radius: 4px;
 	border: 2px solid black;
@@ -255,7 +266,7 @@ label {
 
 .textSection {
 	border: 2px solid black;
-	background-color: #968c8c;
+	background-color: #8c03fc;
 	margin-left: 500px;
 	margin-top: 10px;
 	width: 40%;
@@ -272,7 +283,7 @@ label {
 }
 
 footer {
-	background-color: #968c8c;
+	background: linear-gradient(to right, #0033cc 0%, #3399ff 100%);
 	width: 1890px;
 	border: 2px solid black;
 	bottom: 0;
@@ -310,6 +321,7 @@ footer {
 	padding: 20px;
 	font-size: 30px;
 	text-decoration: none;
+	color: white;
 	
 }
 

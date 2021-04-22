@@ -28,7 +28,7 @@ $(document).ready(function() {
 			})
 			function ajaxDelReturnSuccess(result, status, xhr) {
 				clearFields();
-				$("#responseLabel").html("Movie Deleted");
+				$("#responseLabel").html("User Deleted");
 			}
 			function ajaxDelReturnError(result, status, xhr){
 				$("#responseLabel").html("Error occured");
@@ -52,7 +52,7 @@ $(document).ready(function() {
 			})
 			function ajaxDelReturnSuccess(result, status, xhr) {
 				clearFields();
-				$("#responseLabel").html("Movie Added");
+				$("#responseLabel").html("User Added");
 			}
 			function ajaxDelReturnError(result, status, xhr){
 				$("#responseLabel").html("Error occured");
@@ -78,7 +78,7 @@ $(document).ready(function() {
 			})
 			function ajaxDelReturnSuccess(result, status, xhr) {
 				clearFields();
-				$("#responseLabel").html("Movie Updated");
+				$("#responseLabel").html("User Updated");
 			}
 			function ajaxDelReturnError(result, status, xhr){
 				$("#responseLabel").html("Error occured");
