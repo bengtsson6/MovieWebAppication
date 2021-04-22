@@ -47,6 +47,7 @@
 						<option>Musical</option>
 						<option>Romance</option>
 						<option>Sci-Fi</option>
+						<option>Thriller</option>
 						<option>War</option>
 						<option>Western</option>
 					</select> <label for="selStreamingService">Streaming Service</label> <select
