@@ -15,7 +15,6 @@
 			<fieldset>
 			<legend>Choose your test: </legend>
 				<select name="suite"> 
-					<option value="0" selected>Select a testing</option>
 					<option value="isproject.junit.FacadeBeanTest">Facade Test</option>
 				</select> <input type="submit" value="Run">
 			</fieldset>
