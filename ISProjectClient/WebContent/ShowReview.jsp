@@ -28,7 +28,7 @@
 		<br>
     	<table id = "dataTableReview" class = "dataTable">
 			<caption>All Ratings for <%=title%>, Average Rating: <%=avgRating%></caption>
-			<tr>
+			<tr id= "tableHeader">
 				<th>User email</th>
 				<th>Rating</th>
 				<th>Review</th>
