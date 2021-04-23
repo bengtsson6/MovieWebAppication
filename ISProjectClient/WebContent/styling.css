@@ -1,25 +1,38 @@
 html {
 	height: 100%;
 }
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+input, select{
+	border: 1px solid #000000;
+}
+
 fieldset {
 	background: #ffffff;
-	width: 50%;
-	border-color: #000000;
-	border-style: solid;
+	width: 100%;
+	border: 2px solid #000000;
+	padding: 15px 0;
+}
+
+form p{
+	margin: 20px 0;
 }
 
 .header img {
 	float: left;
+	margin-left: 150px;
 }
 
 body {
 	background: #ffffff;
-	width: 1880px;
 	position: relative;
-	min-height: 100%;
-	padding-bottom: 150px;
+	min-height: 100vh;
 	font-family: "Nunito", sans-serif;
-	
 }
 
 legend {
@@ -43,55 +56,58 @@ legend {
 	overflow: hidden;
 	padding-bottom: 10px;
 	width: 100%;
-	border: 2px solid black;
+	display: flex;
+	align-items: center;
 }
 
 .no-whitespace {
 	margin: 0;
 	padding: 0;
 	margin-left: 25px;
+	color: #767676;
 }
 
-.header-right {
-	float: right;
+.header-center{
+	width: 60%;
 }
 
-.header-left {
-	float: left;
-	width: 70%;
-}
 
 .header-right a {
 	float: left;
-	color: black;
+	color: #767676;
 	text-align: center;
 	font-size: 20px;
 	text-decoration: none;
 	padding: 12px;
-}
-
-.mainSection {
-	margin-top: 20px;
-	margin-bottom: 50px;
-	padding: 10px, 20px;
-	float: left;
-	width: 100%;
 	
 }
 
+.mainSection {
+	padding: 10px, 20px;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	display: flex;
+	
+}
+#MovieFS, #UserFS{
+	margin: 0;
+	padding-left: 15px;
+}
+
 .dataTable {
-	width: 52%;
+	width: 100%;
 	text-align: left;
 	border: 2px solid black;
 	border-collapse: collapse;
 	margin-bottom: 100px;
 }
 #dataTableReview {
-	width: 52%;
+	width: 100%;
 	text-align: left;
 	border: 2px solid black;
 	border-collapse: collapse;
-	margin-bottom: 100px;
 	table-layout: fixed;
 }
 
@@ -107,8 +123,6 @@ legend {
 }
 
 .dataTable tr:hover {
-	font-weight: bold;
-	font-size: 17px;
 	background-color: #d7d9d7;
 }
 #tableHeader {
@@ -126,43 +140,25 @@ legend {
 	padding-bottom: 5px;
 	font-size: 12px;
 	word-wrap : break-word;
+	text-align: center;
 }
 
-aside {
-	float: right;
-	border: 2px solid black;
-	width: 25%;
-	margin-top: 10px;
-	background: #ffffff;
+.rowButton{
+	margin: 2px;
+	width: 100px;
 }
 
-#asideTable {
-	text-align: left;
-	border-collapse: collapse;
-	font-size: 17px;
-}
-
-#asideTable th, td {
-	border: 0px;
-	font-weight: normal;
-	padding: 10px;
-}
-
-caption {
-	text-align: left;
-	font-weight: bold;
-	font-size: 20px;
-}
 
 #nav {
-	float: left;
-	width: 15%;
+	width: 20%;
+	height: 300px;
 	background: #C7C7C7;
-	padding: 10px 10px 250px 0px;
-	border-radius: 4px;
-	border: 2px solid black;
+	border: none;
 	margin-right: 20px;
-	margin-top: 10px;
+}
+#nav ul{
+	margin: 0;
+	height: 100%;
 }
 
 #nav a {
@@ -171,22 +167,34 @@ caption {
 	padding: 10px 10px;
 	text-decoration: none;
 	font-size: 20px;
+	height: 33.33333333%;
+}
+
+#nav li{
+	height: 33.333333%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 /* Change color on hover */
 #nav1 a:hover {
 	background-color: #FCF790;
 	color: black;
+	opacity: 0.7;
 }
 
 #nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	text-align: center; 
+	margin: auto;
 }
 
 #nav li:hover, #nav li:focus {
 	color: #666;
 	background-color: #FCF790;
+	opacity: 0.7;
 }
 
 .thick-font {
@@ -203,6 +211,14 @@ caption {
 
 .txtInputEnterInformation :focus {
 	border: 2px solid #69ff78;
+}
+
+.contactTitle{
+	margin-top: 20px;
+}
+
+#searchField{
+	width: 100%;
 }
 
 select {
@@ -258,66 +274,42 @@ label {
 .textSection {
 	border: 2px solid black;
 	background-color: #ffffff;
-	margin-left: 500px;
-	margin-top: 10px;
-	width: 40%;
+	width: 75%;
 	padding: 10px;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+
 }
 
 #titleHomePage {
-	margin-top: 0px;
-	font-size: 30px:
+	font-size: 30px;
 }
 
 #txtHomePage {
 	font-size: 17px;
+	margin-top: 10px;
+}
+
+.textContainer{
+	height: 180px;
+	margin: auto 0;
 }
 
 footer {
 	background: #ffffff;
-	width: 1890px;
-	border: 2px solid black;
-	bottom: 0;
-	overflow: hidden;
-	clear: both;
-	position: relative; 
 	height: 120px;
+	text-align: center;
+	position: relative;
+	bottom: 0;
+	width: 100%;
 }
 
-#rightFooter {
-	float: right;
-	display: inline-block;
-	
-}
-
-#rightFooter h3 {
-	font-size: 20px;
-	margin: 0;
-	padding: 0;
-}
-
-#rightFooter p {
-	margin: 3px;
-	padding: 3px;
-}
-
-#leftFooter {
-	float: left;
-	margin: 0;
-	padding: 0;
-	display: inline-block;
-}
 
 #socialMedia .fa {
-	padding: 20px;
-	font-size: 30px;
+	margin: 20px;
+	font-size: 25px;
 	text-decoration: none;
 	color: #FCF790;
 	
-}
-
-#socialMedia {
-	width: 20%;
-	display: inline-block;
-	margin-left: 450px;
 }
