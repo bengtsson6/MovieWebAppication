@@ -23,11 +23,13 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
-		<%@ include file="Weather.html"%>
+		<div class="rightside">
+		
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="moviePage" onSubmit="return validateMovieForm();">
-			<fieldset id="MovieFS">
-				<legend>Enter Movie Information:</legend>
+			<fieldset> 
+			<legend>Enter Movie Information:</legend>
+			<div id="MovieFS">
 				<p>Fields marked with "*" is mandatory</p>
 				<p>
 					<label for="txtName">Title:*</label> <input type="text"
@@ -101,8 +103,9 @@
 				<%
 					}
 				%>
-			</fieldset>
+			</div>
 			<input name="operation" value="moviePage" type=hidden>
+			</fieldset>
 		</form>
 		<br> <input type="text" id="searchField"
 			onkeyup="filterTableFunction()" placeholder="Search by Title">
@@ -163,7 +166,8 @@
 				name="btnValue" id="btnValue" value="" type="hidden"> <input
 				name="operation" value="moviePageToRating" type="hidden">
 		</form>
-		<%@ include file="Footer.html"%>
+		</div>
 	</section>
+	<%@ include file="Footer.html"%>
 </body>
 </html>

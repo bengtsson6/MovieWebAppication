@@ -21,7 +21,6 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
-		<%@ include file="Weather.html"%>
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="addRatingForm" onSubmit="return validateRatingForm();">
 			<fieldset id="RatingFS">

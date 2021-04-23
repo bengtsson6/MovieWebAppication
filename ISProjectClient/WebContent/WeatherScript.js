@@ -11,7 +11,7 @@ $(document).ready(function(){
 	}
 	
 	function ajaxReturn_Error(result, status, xhr) {
-		$("#errorResponse").html("Error fetch weater service");
+		$("#errorResponse").html("Error fetch weather service");
 	} 
 });// End ready function
 
