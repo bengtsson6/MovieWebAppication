@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name="UserProfile.findAll", query="SELECT u FROM UserProfile u"),
+	@NamedQuery(name="UserProfile.findAll", query="SELECT u FROM UserProfile u ORDER BY email"),
 })
 @Table(name="UserProfile")
 public class UserProfile implements Serializable {

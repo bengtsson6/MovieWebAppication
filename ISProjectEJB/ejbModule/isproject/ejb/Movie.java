@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name ="Movie.findAll", query="SELECT m FROM Movie m"),
+	@NamedQuery(name ="Movie.findAll", query="SELECT m FROM Movie m ORDER BY movieName"),
 })
 @Table(name ="Movie")
 public class Movie implements Serializable {
