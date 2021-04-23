@@ -22,13 +22,12 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
-		<%@ include file="Weather.html" %>
 		<br> <input type="text" id="searchField"
 			onkeyup="filterTableFunction()" placeholder="Search by User Email">
 		<br>
     	<table id = "dataTableReview" class = "dataTable">
 			<caption>All Ratings for <%=title%>, Average Rating: <%=avgRating%></caption>
-			<tr>
+			<tr id= "tableHeader">
 				<th>User email</th>
 				<th>Rating</th>
 				<th>Review</th>

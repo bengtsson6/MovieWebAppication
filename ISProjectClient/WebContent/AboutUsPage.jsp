@@ -11,8 +11,8 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
-		<%@ include file="Weather.html"%>
 		<section class="textSection">
+		<div> 
 			<h1 id="titleHomePage">About Us</h1>
 			<p id=txtHomePage>
 				Welcome to Movie Center, your number one source for all things
@@ -27,9 +27,18 @@
 				turn our passion into our own website. <br>
 				<br>We hope you enjoy this website as much as we enjoy offering
 				them to you. If you have any questions or comments, please don't
-				hesitate to contact us. <br> <br> Sincerely,
+				hesitate to contact us. <br> <br> Sincerely,<br>
 				Programmeringsprinsarna
 			</p>
+			<h3 class="contactTitle">Contact</h3>
+			<p> Email:
+			<a href="mailto:info@programmeringsprinsarna.com">info@programmeringsprinsarna.com</a> 
+			<br>
+			Address: Tycho Brahes väg 1, 223 63 Lund
+			<br>
+			Phone: 0709195046
+			</p>
+			</div>
 		</section>
 	</section>
 	<%@ include file="Footer.html"%>

@@ -20,11 +20,12 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
-		<%@ include file="Weather.html" %>
+		<div class="rightside">
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="userForm" onSubmit="return validateUserForm();">
-			<fieldset id="UserFS">
+			<fieldset>
 				<legend>Enter User Information:</legend>
+				<div id="UserFS"> 
 				<p>Fields marked with "*" is mandatory</p>
 				<p>
 					<label for="txtEmail">User Email: *</label> <input type="text"
@@ -72,7 +73,7 @@
 				<%
 					}
 				%>
-
+			</div>
 			</fieldset>
 			<input name="operation" value="userPage" type=hidden>
 		</form>
@@ -115,7 +116,8 @@
 		<%
 			}
 		%>
-			<%@ include file="Footer.html"%>
+		</div>
 	</section>
+	<%@ include file="Footer.html"%>
 </body>
 </html>

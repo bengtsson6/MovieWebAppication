@@ -11,11 +11,11 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
-		<%@ include file="Weather.html"%>
 		<form action="TestServlet" method="get" name="testMethodsForm">
 			<fieldset>
 			<legend>Choose your test: </legend>
-				<select name="suite">
+				<select name="suite"> 
+					<option value="0" selected>Select a testing</option>
 					<option value="isproject.junit.FacadeBeanTest">Facade Test</option>
 				</select> <input type="submit" value="Run">
 			</fieldset>
