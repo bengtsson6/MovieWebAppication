@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import isproject.assistance.ObjectCreator;
 import isproject.ejb.Movie;
-import isproject.ejb.MovieId;
 import isproject.ejb.Rating;
-import isproject.ejb.RatingId;
 import isproject.ejb.UserProfile;
 import isproject.facade.FacadeLocal;
 
@@ -76,7 +74,7 @@ public class MainServlet extends HttpServlet {
 					request.setAttribute("allUsers", allUsers);
 					request.setAttribute("Failure", "Couldn't find user to update, try add user instead");
 				}
-			} else if (request.getParameter("btnSubmit").equals("Delete User")) { // Delete, används ej i GUI i nuläget.
+			} else if (request.getParameter("btnSubmit").equals("Delete User")) {
 				if (facade.findUserByEmail(email) != null) {
 					facade.deleteUser(email);
 					List<UserProfile> allUsers = facade.findAllUsers();
@@ -97,18 +95,14 @@ public class MainServlet extends HttpServlet {
 		}
 		if (operation.equals("moviePage")) {
 			url = "/MoviePage.jsp";
+			String movieName = request.getParameter("txtName");
+			String releaseYear = request.getParameter("selReleaseYear");
+			String director = request.getParameter("txtDirector");
+			String genre = request.getParameter("selGenre");
+			String streamingService = request.getParameter("selStreamingService");
 			if (request.getParameter("btnSubmit").equals("Add Movie")) {
-				Movie movie = new Movie();
-				MovieId id = new MovieId();
-				String movieName = request.getParameter("txtName");
-				String releaseYear = request.getParameter("selReleaseYear");
 				if (facade.findMovieById(movieName, releaseYear) == null) {
-					id.setMovieName(movieName);
-					id.setReleaseYear(releaseYear);
-					movie.setId(id);
-					movie.setDirector(request.getParameter("txtDirector"));
-					movie.setGenre(request.getParameter("selGenre"));
-					movie.setStreamingService(request.getParameter("selStreamingService"));
+					Movie movie = ObjectCreator.createMovieObject(movieName, releaseYear, director, genre, streamingService);
 					facade.createMovie(movie);
 					request.setAttribute("Success", "New movie was succesfully added");
 					List<Movie> allMovies = facade.findAllMovie();
@@ -120,17 +114,8 @@ public class MainServlet extends HttpServlet {
 					request.setAttribute("allMovies", allMovies);
 				}
 			} else if (request.getParameter("btnSubmit").equals("Update Movie")) {
-				String movieName = request.getParameter("txtName");
-				String releaseYear = request.getParameter("selReleaseYear");
 				if (facade.findMovieById(movieName, releaseYear) != null) {
-					Movie movie = new Movie();
-					MovieId id = new MovieId();
-					id.setMovieName(request.getParameter("txtName"));
-					id.setReleaseYear(request.getParameter("selReleaseYear"));
-					movie.setId(id);
-					movie.setDirector(request.getParameter("txtDirector"));
-					movie.setGenre(request.getParameter("selGenre"));
-					movie.setStreamingService(request.getParameter("selStreamingService"));
+					Movie movie = ObjectCreator.createMovieObject(movieName, releaseYear, director, genre, streamingService);
 					facade.updateMovie(movie);
 					List<Movie> allMovies = facade.findAllMovie();
 					request.setAttribute("allMovies", allMovies);
@@ -141,8 +126,6 @@ public class MainServlet extends HttpServlet {
 					request.setAttribute("Failure", "Coudn't find movie to update, try add the movie");
 				}
 			} else if (request.getParameter("btnSubmit").equals("Delete Movie")) {
-				String movieName = request.getParameter("txtName");
-				String releaseYear = request.getParameter("selReleaseYear");
 				if (facade.findMovieById(movieName, releaseYear) != null) {
 					facade.deleteMovie(movieName, releaseYear);
 					List<Movie> allMovies = facade.findAllMovie();
@@ -162,19 +145,13 @@ public class MainServlet extends HttpServlet {
 		}
 		if (operation.equals("ratingPage")) {
 			url = "/RatingPage.jsp";
-			Rating rating = new Rating();
-			RatingId id = new RatingId();
 			String email = request.getParameter("selEmail");
 			String movieName = request.getParameter("txtTitle");
 			String releaseYear = request.getParameter("txtReleaseYear");
+			int grade = Integer.parseInt(request.getParameter("selRating"));
+			String review = request.getParameter("textAreaReview");
 			if (facade.findRatingById(movieName, releaseYear, email) == null) {
-				id.setEmail(email);
-				id.setMovieName(movieName);
-				id.setReleaseYear(releaseYear);
-				rating.setId(id);
-				int grade = Integer.parseInt(request.getParameter("selRating"));
-				rating.setRatingGrade(grade);
-				rating.setReview(request.getParameter("textAreaReview"));
+				Rating rating = ObjectCreator.createRatingObject(movieName, releaseYear, email, grade, review);
 				facade.createRating(rating);
 				List<String> allEmails = facade.getAllUserEmails();
 				request.setAttribute("Success", "Rating was succesfully added");
