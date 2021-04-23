@@ -22,7 +22,6 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
-		<%@ include file="Weather.html" %>
 		<br> <input type="text" id="searchField"
 			onkeyup="filterTableFunction()" placeholder="Search by User Email">
 		<br>
