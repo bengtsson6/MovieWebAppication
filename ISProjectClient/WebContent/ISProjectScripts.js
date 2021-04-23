@@ -16,7 +16,12 @@ function sendTablesForm() {
 
 function filterTableFunction() {
 	var input = document.getElementById("searchField");
-	var table = document.getElementById("dataTable");
+	var table = null;
+	if (document.getElementById("dataTable") != null) {
+		table = document.getElementById("dataTable");
+	} else if (document.getElementById("dataTableReview") != null) {
+		table = document.getElementById("dataTableReview");
+	}
 	if (input != null || table != null) {
 		var filterText = input.value.toUpperCase();
 		var tableRows = table.getElementsByTagName("tr");
@@ -35,7 +40,6 @@ function filterTableFunction() {
 	}
 }
 
-
 function rowButtonClicked(button) {
 	var td = button.parentElement;
 	var row = td.parentElement;
@@ -46,10 +50,10 @@ function rowButtonClicked(button) {
 	var year = tdYear.innerText;
 	document.getElementById("inputMovieTitle").value = title;
 	document.getElementById("inputReleaseYear").value = year;
-	if (button.name === "addRating"){
+	if (button.name === "addRating") {
 		document.getElementById("btnValue").value = "addBtn";
 	}
-	if (button.name === "showRating"){
+	if (button.name === "showRating") {
 		document.getElementById("btnValue").value = "showBtn";
 	}
 	form.submit();

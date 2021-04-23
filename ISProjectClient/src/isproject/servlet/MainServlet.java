@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import isproject.assistance.ObjectCreator;
 import isproject.ejb.Movie;
 import isproject.ejb.MovieId;
 import isproject.ejb.Rating;
@@ -47,12 +48,12 @@ public class MainServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 		if (operation.equals("userPage")) {
 			url = "/UserPage.jsp";
+			String email = request.getParameter("txtEmail");
+			String name = request.getParameter("txtUserName");
+			String birthYear = request.getParameter("selBirthYear");
 			if (request.getParameter("btnSubmit").equals("Add User")) {
-				UserProfile user = new UserProfile();
-				if (facade.findUserByEmail(request.getParameter("txtEmail")) == null) {
-					user.setEmail(request.getParameter("txtEmail"));
-					user.setUserName(request.getParameter("txtUserName"));
-					user.setBirthYear(request.getParameter("selBirthYear"));
+				if (facade.findUserByEmail(email) == null) {
+					UserProfile user = ObjectCreator.createUserObject(email, name, birthYear);
 					facade.createUser(user);
 					List<UserProfile> allUsers = facade.findAllUsers();
 					request.setAttribute("Success", "New User was succesfully added");
@@ -65,10 +66,7 @@ public class MainServlet extends HttpServlet {
 			} else if (request.getParameter("btnSubmit").equals("Update User")) {
 
 				if (facade.findUserByEmail(request.getParameter("txtEmail")) != null) {
-					UserProfile user = new UserProfile();
-					user.setEmail(request.getParameter("txtEmail"));
-					user.setUserName(request.getParameter("txtUserName"));
-					user.setBirthYear(request.getParameter("selBirthYear"));
+					UserProfile user = ObjectCreator.createUserObject(email, name, birthYear);
 					facade.updateUser(user);
 					List<UserProfile> allUsers = facade.findAllUsers();
 					request.setAttribute("allUsers", allUsers);
@@ -79,7 +77,6 @@ public class MainServlet extends HttpServlet {
 					request.setAttribute("Failure", "Couldn't find user to update, try add user instead");
 				}
 			} else if (request.getParameter("btnSubmit").equals("Delete User")) { // Delete, används ej i GUI i nuläget.
-				String email = request.getParameter("txtEmail");
 				if (facade.findUserByEmail(email) != null) {
 					facade.deleteUser(email);
 					List<UserProfile> allUsers = facade.findAllUsers();
