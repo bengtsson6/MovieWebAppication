@@ -22,6 +22,7 @@
 	<%@ include file="Header.html"%>
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
+		<div class="rightside"> 
 		<br> <input type="text" id="searchField"
 			onkeyup="filterTableFunction()" placeholder="Search by User Email">
 		<br>
@@ -47,8 +48,8 @@
 				}
 			%>
 		</table>
-		<button onclick = "window.location.href = 'MoviePage.jsp'" type = "button">Back to Movies</button>
+		</div>
 		</section>
-		<%@ include file="Footer.html"%>
+		<div class="footerContainer"><%@ include file="Footer.html"%></div>
 </body>
 </html>

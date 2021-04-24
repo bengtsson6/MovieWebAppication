@@ -8,7 +8,7 @@ html {
 	border: 0;
 }
 
-input, select{
+input, select, textarea{
 	border: 1px solid #000000;
 }
 
@@ -17,6 +17,10 @@ fieldset {
 	width: 100%;
 	border: 2px solid #000000;
 	padding: 15px 0;
+}
+
+form{
+	width: 100%;
 }
 
 form p{
@@ -30,9 +34,7 @@ form p{
 
 body {
 	background: #ffffff;
-	position: relative;
-	min-height: 100vh;
-	font-family: "Nunito", sans-serif;
+	font-family: raleway,"Nunito", sans-serif;
 }
 
 legend {
@@ -58,17 +60,18 @@ legend {
 	width: 100%;
 	display: flex;
 	align-items: center;
+	margin-bottom: 75px;
 }
 
 .no-whitespace {
 	margin: 0;
 	padding: 0;
-	margin-left: 25px;
+	margin-left: 10px;
 	color: #767676;
 }
 
 .header-center{
-	width: 60%;
+	width: 50%;
 }
 
 
@@ -79,7 +82,7 @@ legend {
 	font-size: 20px;
 	text-decoration: none;
 	padding: 12px;
-	
+	margin-right: 40px;
 }
 
 .mainSection {
@@ -91,9 +94,15 @@ legend {
 	display: flex;
 	
 }
-#MovieFS, #UserFS{
+
+.rightside{
+	width: 60%;
+}
+
+#MovieFS, #UserFS, #RatingFS, #TestingFS{
 	margin: 0;
 	padding-left: 15px;
+	width: 100%
 }
 
 .dataTable {
@@ -103,6 +112,7 @@ legend {
 	border-collapse: collapse;
 	margin-bottom: 100px;
 }
+
 #dataTableReview {
 	width: 100%;
 	text-align: left;
@@ -111,8 +121,13 @@ legend {
 	table-layout: fixed;
 }
 
+
 .rowButton {
 	cursor: pointer;
+}
+
+.dataTable td{
+	padding: 5px;
 }
 
 .dataTable tr:nth-child(even) {
@@ -130,7 +145,7 @@ legend {
 		
 }
 #tableHeader th {
-	padding: 10px 0px 10px 0px;
+	padding: 10px 5px;
 	font-size: 20px;
 }
 
@@ -272,9 +287,9 @@ label {
 }
 
 .textSection {
-	border: 2px solid black;
+	border: 2px solid #C7C7C7;
 	background-color: #ffffff;
-	width: 75%;
+	width: 60%;
 	padding: 10px;
 	margin-right: 20px;
 	display: flex;
@@ -296,13 +311,22 @@ label {
 	margin: auto 0;
 }
 
-footer {
-	background: #ffffff;
-	height: 120px;
-	text-align: center;
-	position: relative;
+.footerContainer{
+	position: absolute;
 	bottom: 0;
+	left: 0;
 	width: 100%;
+}
+
+footer {
+	background: #fff;
+	height: 85px;
+	text-align: center;
+	width: 100%;
+}
+
+#leftFooter{
+	font-size: 10px;
 }
 
 

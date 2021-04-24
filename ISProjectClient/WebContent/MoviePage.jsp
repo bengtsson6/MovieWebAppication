@@ -6,6 +6,8 @@
 <%@ page import="java.util.List"%>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="ValidationScripts.js">
 	
 </script>
@@ -24,7 +26,6 @@
 	<section class="mainSection">
 		<%@ include file="NavigationBar.html"%>
 		<div class="rightside">
-		
 		<form action="/ISProjectClient/MainServlet" method="post"
 			id="moviePage" onSubmit="return validateMovieForm();">
 			<fieldset> 
@@ -72,7 +73,7 @@
 					<label for="selReleaseYear">Release Year: *</label> <select
 						name="selReleaseYear" id="selReleaseYear">
 						<%
-							for (int i = 1930; i < 2022; i++) {
+							for (int i = 1895; i < 2022; i++) {
 						%>
 						<option><%=i%></option>
 						<%
@@ -126,7 +127,7 @@
 				<th>Title</th>
 				<th>Release Year</th>
 				<th>Director</th>
-				<th>Genre</th>
+				<th> Genre </th>
 				<th>Streaming Service</th>
 				<th>Options
 			</tr>
