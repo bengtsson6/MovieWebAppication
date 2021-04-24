@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="ISO-8859-1">
 <title>IsProjectVT21.HomePage</title>
 <link rel="stylesheet" type="text/css" href="styling.css">
@@ -41,6 +42,6 @@
 			</div>
 		</section>
 	</section>
-	<%@ include file="Footer.html"%>
+	<div class="footerContainer"><%@ include file="Footer.html"%></div>
 </body>
 </html>
