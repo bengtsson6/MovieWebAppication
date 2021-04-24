@@ -74,8 +74,6 @@
 				</div>
 				<br> <br> <input type="submit" name="btnSubmit"
 					id="btnAddRating" value="Add Rating">
-				<button onclick="window.location.href = 'MoviePage.jsp'"
-					type="button">Back to Movies</button>
 				<%
 					if (success != null) {
 				%>

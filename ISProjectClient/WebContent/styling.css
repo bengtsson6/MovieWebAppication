@@ -306,6 +306,19 @@ label {
 	margin-top: 10px;
 }
 
+#asideTable {
+	text-align: left;
+	border-collapse: collapse;
+	font-size: 17px;
+}
+
+#asideTable th, td {
+	border: 0px;
+	font-weight: normal;
+	padding: 10px;
+	font-size: 17px;
+}
+
 .textContainer{
 	height: 180px;
 	margin: auto 0;
