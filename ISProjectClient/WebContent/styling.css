@@ -113,6 +113,10 @@ legend {
 	margin-bottom: 100px;
 }
 
+.buttonCell{
+	width: 223px;
+}
+
 #dataTableReview {
 	width: 100%;
 	text-align: left;
