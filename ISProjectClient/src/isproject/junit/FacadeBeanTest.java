@@ -10,7 +10,7 @@ import junit.framework.TestCase;
 public class FacadeBeanTest extends TestCase {
 	
 	FacadeLocal facade;
-	UserProfile user;
+	UserProfile user = new UserProfile();
 
 	public FacadeBeanTest(String name) {
 		super(name);
@@ -20,26 +20,21 @@ public class FacadeBeanTest extends TestCase {
 		super.setUp();
 		Context context = new InitialContext(); 
 		facade = (FacadeLocal)context.lookup("java:app/ISProjectEJB/Facade!isproject.facade.FacadeLocal");
-		UserProfile user = new UserProfile();
 		user.setEmail("test@Gmail.com");
 		user.setUserName("test");
 		user.setBirthYear("1996");
 		
 	}
 
-	public void testFacadeUserCreateMethod() throws Exception {
+	public void testFacadeUserCRUDMethods() throws Exception {
 		assertEquals(facade.createUser(user),user);
-	}
-	
-	public void testFacadeUserFindMethod() throws Exception {
 		assertNotNull(facade.findUserByEmail(user.getEmail()));
-	}
-	public void testDeleteUserMethod() throws Exception {
+		user.setEmail("update@Gmail.com");
+		assertEquals(facade.updateUser(user), user);
 		facade.deleteUser(user.getEmail());
 		assertNull(facade.findUserByEmail(user.getEmail()));
 	}
 	
-
 	protected void tearDown() throws Exception {
 		super.tearDown();
 		facade = null;
