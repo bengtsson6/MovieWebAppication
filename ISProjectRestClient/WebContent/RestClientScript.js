@@ -16,7 +16,8 @@ $(document).ready(function() {
 				$("#responseLabel").html("Error occured");
 			}
 		}
-	})//End of addBtnClick Function
+	})//End of FindBtnClick Function
+	
 	$("#deleteBtn").click( function() {
 		var emailValue = $("#txtEmail").val();
 		if (emailValue != ""){
@@ -35,6 +36,7 @@ $(document).ready(function() {
 			}
 		}
 	})//End of deleteButton function	
+	
 	$("#addBtn").click ( function () {
 		var emailValue = $("#txtEmail").val();
 		var userNameValue = $("#txtName").val();
@@ -59,6 +61,7 @@ $(document).ready(function() {
 			}	
 		}
 	})//End of addbtn function
+	
 		$("#updateBtn").click ( function () {
 		var emailValue = $("#txtEmail").val();
 		var userNameValue = $("#txtName").val();
@@ -85,25 +88,25 @@ $(document).ready(function() {
 			}	
 		}
 	})//End of update btn function
-		$("#findAllBtn").click ( function(){
-
-			$.ajax({
-				method: "GET",
-				url: "http://localhost:8080/ISProjectRestClient/UserRestServlet/",
-				error: ajaxFindAllReturnError,
-				success: ajaxFindAllReturnSuccess
+	
+	$("#findAllBtn").click ( function(){
+		$.ajax({
+			method: "GET",
+			url: "http://localhost:8080/ISProjectRestClient/UserRestServlet/",
+			error: ajaxFindAllReturnError,
+			success: ajaxFindAllReturnSuccess
 			})
-			function ajaxFindAllReturnSuccess(result, status, xhr) {
-				var allUsers = ""; 
-				for(var i = 0; i < result.length; i++){
-					allUsers += " {" + result[i].email + ", " + result[i].name + ", " + result[i].birthyear +"}, " + "<br>";
-				}
-				$("#allUsers").html(allUsers);
+		function ajaxFindAllReturnSuccess(result, status, xhr) {
+			var allUsers = ""; 
+			for(var i = 0; i < result.length; i++){
+				allUsers += " {" + result[i].email + ", " + result[i].name + ", " + result[i].birthyear +"}, " + "<br>";
 			}
-			function ajaxFindAllReturnError(result, status, xhr){
-				alert("error");
+			$("#allUsers").html(allUsers);
 			}
-	})
+		function ajaxFindAllReturnError(result, status, xhr){
+			alert("error");
+		}
+	})//End of findAllBtnClick event
 		
 	$("#clearBtn").click( function() {
 		clearFields();

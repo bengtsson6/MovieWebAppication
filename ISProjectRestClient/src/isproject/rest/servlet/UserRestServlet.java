@@ -144,7 +144,6 @@ public class UserRestServlet extends HttpServlet {
 				array.add(o);
 			}
 			JsonArray jsonArray = array.build();
-			System.out.println("User rest: " + jsonArray);
 			out.print(jsonArray);
 		} else {
 			out.print("[]");

@@ -37,5 +37,4 @@ public class RatingEAOImpl implements RatingEAOLocal {
 			em.remove(rating);
 		}
 	}
-
 }

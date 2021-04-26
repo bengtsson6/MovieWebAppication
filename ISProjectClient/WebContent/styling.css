@@ -118,12 +118,12 @@ legend {
 	text-align: left;
 	border: 2px solid black;
 	border-collapse: collapse;
-	table-layout: fixed;
 }
-
 
 .rowButton {
 	cursor: pointer;
+	margin: 2px;
+	width: 100px;
 }
 
 .dataTable td{
@@ -157,12 +157,6 @@ legend {
 	word-wrap : break-word;
 	text-align: center;
 }
-
-.rowButton{
-	margin: 2px;
-	width: 100px;
-}
-
 
 #nav {
 	width: 20%;

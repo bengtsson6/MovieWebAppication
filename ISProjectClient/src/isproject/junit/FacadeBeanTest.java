@@ -10,7 +10,7 @@ import junit.framework.TestCase;
 public class FacadeBeanTest extends TestCase {
 	
 	FacadeLocal facade;
-	UserProfile user = new UserProfile();
+	UserProfile user;
 
 	public FacadeBeanTest(String name) {
 		super(name);
@@ -20,6 +20,7 @@ public class FacadeBeanTest extends TestCase {
 		super.setUp();
 		Context context = new InitialContext(); 
 		facade = (FacadeLocal)context.lookup("java:app/ISProjectEJB/Facade!isproject.facade.FacadeLocal");
+		UserProfile user = new UserProfile();
 		user.setEmail("test@Gmail.com");
 		user.setUserName("test");
 		user.setBirthYear("1996");
