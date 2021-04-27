@@ -16,7 +16,7 @@
 		<form action="TestServlet" method="get" name="testMethodsForm">
 			<fieldset id="TestingFS">
 			<legend>Choose your test: </legend>
-				<select name="suite"> 
+				<select name="suite" id = "selTest"> 
 					<option value="isproject.junit.FacadeBeanTest">Facade Test</option>
 				</select> <input type="submit" value="Run">
 			</fieldset>

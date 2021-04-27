@@ -1,5 +1,7 @@
 package isproject.junit;
 
+import java.util.List;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
@@ -10,7 +12,7 @@ import junit.framework.TestCase;
 public class FacadeBeanTest extends TestCase {
 	
 	FacadeLocal facade;
-	UserProfile user = new UserProfile();
+	UserProfile user;
 
 	public FacadeBeanTest(String name) {
 		super(name);
@@ -20,24 +22,30 @@ public class FacadeBeanTest extends TestCase {
 		super.setUp();
 		Context context = new InitialContext(); 
 		facade = (FacadeLocal)context.lookup("java:app/ISProjectEJB/Facade!isproject.facade.FacadeLocal");
+		user = new UserProfile();
 		user.setEmail("test@Gmail.com");
 		user.setUserName("test");
 		user.setBirthYear("1996");
 		
-	}
-
-	public void testFacadeUserCRUDMethods() throws Exception {
-		assertEquals(facade.createUser(user),user);
-		assertNotNull(facade.findUserByEmail(user.getEmail()));
-		user.setEmail("update@Gmail.com");
-		assertEquals(facade.updateUser(user), user);
-		facade.deleteUser(user.getEmail());
-		assertNull(facade.findUserByEmail(user.getEmail()));
 	}
 	
 	protected void tearDown() throws Exception {
 		super.tearDown();
 		facade = null;
 		user = null;
+	}
+	
+	public void testFacadeUserCRUDMethods() throws Exception {
+		assertEquals(facade.createUser(user), user);
+		user.setUserName("update");
+		assertEquals(facade.updateUser(user), user);
+		assertNotNull(facade.findUserByEmail(user.getEmail()));
+		facade.deleteUser(user.getEmail());
+		assertNull(facade.findUserByEmail(user.getEmail()));
+	}
+	
+	public void testFacadeFindAllMethods() throws Exception{
+		assertTrue(facade.findAllUsers() instanceof List);
+		assertTrue(facade.findAllMovie() instanceof List);
 	}
 }
