@@ -134,13 +134,6 @@ legend {
 	padding: 5px;
 }
 
-.dataTable tr:nth-child(even) {
-	background-color: transparent; 
-}
-.dataTable tr:nth-child(odd) {
-	background-color : #ffffff;
-}
-
 .dataTable tr:hover {
 	background-color: #d7d9d7;
 }
@@ -177,10 +170,11 @@ legend {
 #nav a {
 	display: block;
 	color: #000000;
-	padding: 10px 10px;
+	padding: 40px 10px;
 	text-decoration: none;
 	font-size: 20px;
-	height: 33.33333333%;
+	height: 100%;
+	width: 100%;
 }
 
 #nav li{
