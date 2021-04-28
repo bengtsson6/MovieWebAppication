@@ -31,7 +31,7 @@
 			<fieldset> 
 			<legend>Enter Movie Information:</legend>
 			<div id="MovieFS">
-				<p>Fields marked with "*" is mandatory</p>
+				<p>Fields marked with "*" are mandatory</p>
 				<p>
 					<label for="txtName">Title:*</label> <input type="text"
 						id="txtName" name="txtName" class="txtInputEnterInformation">

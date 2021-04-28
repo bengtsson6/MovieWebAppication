@@ -27,7 +27,7 @@
 			<fieldset>
 				<legend>Enter User Information:</legend>
 				<div id="UserFS"> 
-				<p>Fields marked with "*" is mandatory</p>
+				<p>Fields marked with "*" are mandatory</p>
 				<p>
 					<label for="txtEmail">User Email: *</label> <input type="text"
 						name="txtEmail" id="txtEmail" class="txtInputEnterInformation">
