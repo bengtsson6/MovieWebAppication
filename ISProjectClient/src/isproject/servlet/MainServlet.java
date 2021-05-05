@@ -70,7 +70,7 @@ public class MainServlet extends HttpServlet {
 					facade.updateUser(user);
 					List<UserProfile> allUsers = facade.findAllUsers();
 					request.setAttribute("allUsers", allUsers);
-					request.setAttribute("Success", "New User was succesfully updated");
+					request.setAttribute("Success", "User was succesfully updated");
 				} else {
 					List<UserProfile> allUsers = facade.findAllUsers();
 					request.setAttribute("allUsers", allUsers);

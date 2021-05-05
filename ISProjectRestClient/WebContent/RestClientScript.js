@@ -15,6 +15,8 @@ $(document).ready(function() {
 			function ajaxFindReturnError(result, status, xhr){
 				$("#responseLabel").html("Error occured");
 			}
+		} else {
+			$("#responseLabel").html("Please Enter Email address");
 		}
 	})//End of FindBtnClick Function
 	
@@ -34,6 +36,8 @@ $(document).ready(function() {
 			function ajaxDelReturnError(result, status, xhr){
 				$("#responseLabel").html("Error occured");
 			}
+		} else {
+			$("#responseLabel").html("Please Enter Email address");
 		}
 	})//End of deleteButton function	
 	
@@ -58,7 +62,9 @@ $(document).ready(function() {
 			}
 			function ajaxDelReturnError(result, status, xhr){
 				$("#responseLabel").html("Error occured");
-			}	
+			}
+			} else {
+				$("#responseLabel").html("Please Enter Email address");
 		}
 	})//End of addbtn function
 	
@@ -86,6 +92,8 @@ $(document).ready(function() {
 			function ajaxDelReturnError(result, status, xhr){
 				$("#responseLabel").html("Error occured");
 			}	
+		} else {
+			$("#responseLabel").html("Please Enter Email address");
 		}
 	})//End of update btn function
 	
